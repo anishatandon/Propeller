@@ -34,5 +34,25 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAE3rMblfzZOFTXxSUHezi3jquVf0bXBhY",
+        authDomain: "propellor-navigation-test.firebaseapp.com",
+        databaseURL: "https://propellor-navigation-test.firebaseio.com",
+        projectId: "propellor-navigation-test",
+        storageBucket: "",
+        messagingSenderId: "228854286013",
+        appId: "1:228854286013:web:36448ae9a36a682c"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>
