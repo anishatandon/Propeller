@@ -7,10 +7,10 @@ const Navigation = () => (
     <div>
         <ul>
             <li>
-                <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+                <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
             </li>
             <li>
-                <Link to={ROUTES.LANDING}>Landing</Link>
+                <Link to={ROUTES.LOGIN}>Login</Link>
             </li>
             <li>
                 <Link to={ROUTES.HOME}>Home</Link>
