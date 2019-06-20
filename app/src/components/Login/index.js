@@ -76,6 +76,7 @@ const Login = () => (
       <br></br><br></br>
       <input type="submit" value="Submit"></input>
     </form>
+    <p>note: this thing does not work rn, see the comments at the end of the code for more info. Just putting this here for visual idea</p>
   </div>
 );
 
