@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
 
+import { SignInLink } from '../SignIn'
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
@@ -8,6 +10,8 @@ const SignUpPage = () => (
   <div>
     <h1>Create An Account</h1>
     <SignUpForm />
+    <br></br>
+    <SignInLink />
   </div>
 );
 
@@ -124,7 +128,10 @@ const SignUpLink = () => (
   </p>
 );
 
-const SignUpForm = withRouter(withFirebase(SignUpFormBase));
+const SignUpForm = compose(
+  withRouter,
+  withFirebase,
+)(SignUpFormBase);
 
 export default SignUpPage;
 
