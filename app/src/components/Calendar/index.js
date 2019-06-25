@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Calendar = () => (
+import { withAuthorization } from '../Session';
+
+const CalendarPage = () => (
   <div>
     <h1>Current Month</h1>
   </div>
 );
 
-export default Calendar;
+const condition = authUser => !!authUser;
+
+export default  withAuthorization(condition)(CalendarPage);
