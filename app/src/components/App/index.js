@@ -12,6 +12,7 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import CalendarPage from '../Calendar';
 import FriendsPage from '../Friends';
+import AccountPage from '../Account';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -31,6 +32,7 @@ const App = () => (
             <Route path={ROUTES.HOME} component={HomePage} />
             <Route path={ROUTES.CALENDAR} component={CalendarPage} />
             <Route path={ROUTES.FRIENDS} component={FriendsPage} />
+            <Route path={ROUTES.ACCOUNT} component={AccountPage} />
         </div>
     </Router>
 );
