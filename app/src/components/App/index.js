@@ -13,6 +13,7 @@ import HomePage from '../Home';
 import CalendarPage from '../Calendar';
 import FriendsPage from '../Friends';
 import AccountPage from '../Account';
+import AdminPage from '../Admin';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -23,8 +24,6 @@ const App = () => (
         <div>
             <Navigation />
 
-            <hr />
-
             <Route exact path={ROUTES.LANDING} component={LandingPage} />
             <Route path={ROUTES.SIGN_IN} component={SignInPage} />
             <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
@@ -33,6 +32,7 @@ const App = () => (
             <Route path={ROUTES.CALENDAR} component={CalendarPage} />
             <Route path={ROUTES.FRIENDS} component={FriendsPage} />
             <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+            <Route path={ROUTES.ADMIN} component={AdminPage} />
         </div>
     </Router>
 );

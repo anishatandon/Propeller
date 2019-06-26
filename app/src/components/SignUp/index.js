@@ -17,7 +17,7 @@ const SignUpPage = () => (
 );
 
 const INITIAL_STATE = {
-  username: '',
+  displayName: '',
   email: '',
   passwordOne: '',
   passwordTwo: '',
@@ -32,10 +32,18 @@ class SignUpFormBase extends Component {
   }
 
   onSubmit = event => {
-    const { username, email, passwordOne } = this.state;
+    const { displayName, email, passwordOne } = this.state;
 
     this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
+      .doCreateUserWithEmailAndPassword(email, passwordOne) // creates user in Firebase's internal authentication database (limited access)
+      .then(authUser => { // creates user in Firebase's realtime database (accessible)
+        return this.props.firebase
+          .user(authUser.user.uid) 
+          .set({
+            displayName,
+            email,
+          }); 
+      })
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
@@ -52,7 +60,7 @@ class SignUpFormBase extends Component {
 
   render() {
     const {
-      username,
+      displayName,
       email,
       passwordOne,
       passwordTwo,
@@ -63,14 +71,14 @@ class SignUpFormBase extends Component {
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       email === '' ||
-      username === '';
+      displayName === '';
 
     return(
       <form onSubmit={this.onSubmit}>
         Your Name/Username: <br></br>
         <input
-        name="username"
-        value={username}
+        name="displayName"
+        value={displayName}
         onChange={this.onChange}
         type="text"
         placeholder="Full Name/Username"
