@@ -5,8 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: yellow;
-  color: blue
+  background-color: #ffde59;
+  color: #1867be;
+}
+
+button {
+  background-color: #1867be;
+  color:  #ffde59;
+  font-family: Tahoma;
+  font-size: 12;
+  font-weight: bold;
+  border: #1867be;
 }
 
 code {
@@ -22,6 +31,7 @@ p {
 h1 {
   font-family: Tahoma;
   font-size: 60;
+  
 }
 h3 {
   font-family: Tahoma;

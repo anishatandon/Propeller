@@ -1,6 +1,9 @@
 /*import React from 'react';*/
 
-/* const Calendar = () => (
+
+import { withAuthorization } from '../Session';
+
+/* const CalendarPage = () => (
   <div>
     <h1>Current Month</h1>
   </div>
@@ -12,7 +15,7 @@ import React from 'react';
 import moment from 'moment';
 //import './calendar.css';
 
-export default class Calendar extends React.Component {
+export class Calendar extends React.Component {
     state = {
         dateContext: moment(),
         today: moment(),
@@ -214,3 +217,6 @@ export default class Calendar extends React.Component {
         )
     }
 }
+const condition = authUser => !!authUser;
+
+export default  withAuthorization(condition)(Calendar);
