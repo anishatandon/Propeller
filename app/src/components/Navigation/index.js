@@ -17,20 +17,21 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
     <div>
-        <ul>
-            <li>
-                <Link to={ROUTES.HOME}>Home</Link>
-            </li>
-            <li>
-                <Link to={ROUTES.CALENDAR}>Calendar</Link>
-            </li>
-            <li>
-                <Link to={ROUTES.FRIENDS}>Friends</Link>
-            </li>
-            <li>
-                <Link to={ROUTES.ACCOUNT}>My Account</Link>
-            </li>
-        </ul>
+        <Link to={ROUTES.HOME}>
+            <button>Home</button>
+        </Link>
+        <Link to={ROUTES.CALENDAR}>
+            <button>Calendar</button>
+        </Link>
+        <Link to={ROUTES.FRIENDS}>
+            <button>Friends</button>
+        </Link>
+        <Link to={ROUTES.ACCOUNT}>
+            <button>My Account</button>
+        </Link>
+        <Link to={ROUTES.ADMIN}>
+            <button>Admin</button>
+        </Link>
         <SignOutButton />
     </div>
 );

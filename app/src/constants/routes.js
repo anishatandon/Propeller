@@ -6,3 +6,4 @@ export const CALENDAR = '/calendar';
 export const FRIENDS = '/friends';
 export const PASSWORD_FORGET = '/pw-forget';
 export const ACCOUNT = '/account'
+export const ADMIN = '/admin'
