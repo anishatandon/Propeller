@@ -5,9 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: yellow;
+  color: blue
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+p {
+  font-family: Tahoma;
+  font-size: 12;
+}
+
+h1 {
+  font-family: Tahoma;
+  font-size: 60;
+}
+h3 {
+  font-family: Tahoma;
+  font-size: 36;
+}
+button {
+  height: 100px;
+  width: 100px;
+  font-family: Tahoma;
+  font-size: 24;
 }
