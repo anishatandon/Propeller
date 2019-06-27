@@ -10,7 +10,7 @@ import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
-import CalendarPage from '../Calendar';
+import Calendar from '../Calendar';
 import FriendsPage from '../Friends';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
@@ -29,7 +29,7 @@ const App = () => (
             <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
             <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
             <Route path={ROUTES.HOME} component={HomePage} />
-            <Route path={ROUTES.CALENDAR} component={CalendarPage} />
+            <Route path={ROUTES.CALENDAR} component={Calendar} />
             <Route path={ROUTES.FRIENDS} component={FriendsPage} />
             <Route path={ROUTES.ACCOUNT} component={AccountPage} />
             <Route path={ROUTES.ADMIN} component={AdminPage} />
