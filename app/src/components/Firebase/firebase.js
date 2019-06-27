@@ -3,13 +3,13 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const config = {
-    apiKey: "AIzaSyAE3rMblfzZOFTXxSUHezi3jquVf0bXBhY",
-    authDomain: "propellor-navigation-test.firebaseapp.com",
-    databaseURL: "https://propellor-navigation-test.firebaseio.com",
-    projectId: "propellor-navigation-test",
-    storageBucket: "",
-    messagingSenderId: "228854286013",
-    appId: "1:228854286013:web:36448ae9a36a682c",
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASE_URL,
+    projectId: process.env.REACY_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
 };
 
 class Firebase {
