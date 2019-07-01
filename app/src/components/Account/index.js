@@ -11,7 +11,8 @@ const AccountPage = () => (
         {authUser => (
             <div>
                 <h1>My Account</h1>
-                <p><strong>Email: </strong>{authUser.email}</p>
+                {console.log(authUser.email)}
+                <p><strong>Email: </strong>{authUser.uid.displayName}</p>
                 <PasswordChangeForm />
             </div>
         )}
