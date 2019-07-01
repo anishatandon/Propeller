@@ -11,6 +11,10 @@ const AccountPage = () => (
         {authUser => (
             <div>
                 <h1>My Account</h1>
+                {/* <p><strong>Hello, username</strong>{ADMIN.auth().getUser(uid)}</p> */}
+                {/* /FIRDatabase.database().reference().child("users") */}
+                <p><strong>Hello, username</strong>{authUser.displayName}</p> 
+                {/* currently the above line does not work as desired */}
                 <p><strong>Email: </strong>{authUser.email}</p>
                 <PasswordChangeForm />
             </div>
