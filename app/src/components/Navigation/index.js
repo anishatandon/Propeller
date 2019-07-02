@@ -18,19 +18,29 @@ const Navigation = () => (
 const NavigationAuth = () => (
     <div>
         <Link to={ROUTES.HOME}>
-            <button>Home</button>
+            <button className = "iconbutton">
+                <img src="https://image.flaticon.com/icons/svg/25/25694.svg" alt="Home"/>
+            </button>
         </Link>
         <Link to={ROUTES.CALENDAR}>
-            <button>Calendar</button>
+            <button className = "iconbutton">
+                <img src="https://image.flaticon.com/icons/svg/61/61469.svg" alt="Calendar"/>
+            </button>
         </Link>
         <Link to={ROUTES.FRIENDS}>
-            <button>Friends</button>
+            <button className = "iconbutton">
+                <img src="https://image.flaticon.com/icons/svg/880/880594.svg" alt="Friends"/>
+            </button>
         </Link>
         <Link to={ROUTES.ACCOUNT}>
-            <button>My Account</button>
+            <button className = "iconbutton">
+                <img src="https://image.flaticon.com/icons/svg/149/149837.svg" alt="Account"/>
+            </button>
         </Link>
         <Link to={ROUTES.ADMIN}>
-            <button>Admin</button>
+            <button className = "iconbutton">
+                <img src="https://image.flaticon.com/icons/svg/483/483345.svg" alt="Admin"/>
+            </button>
         </Link>
         <SignOutButton />
     </div>

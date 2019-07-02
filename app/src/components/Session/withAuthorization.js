@@ -14,6 +14,12 @@ const withAuthorization = condition => Component => {
                     if (!condition(authUser)) {
                         this.props.history.push(ROUTES.SIGN_IN); // redirects to sign in page if authUser == null
                     }
+                    // Trying to get username from Firebase
+                    // else {
+                    //     var displayName = authUser.displayName;
+                    //     var email = authUser.email;
+                    //     var uid = authUser.uid;
+                    // }
                 },
             );
         }

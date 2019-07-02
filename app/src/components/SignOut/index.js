@@ -5,8 +5,8 @@ import * as ROUTES from '../../constants/routes';
 
 const SignOutButton = ({ firebase }) => (
     <Link to={ROUTES.LANDING}>
-        <button type="button" onClick={firebase.doSignOut}>
-            Sign Out
+        <button type="button" className = "iconbutton" onClick={firebase.doSignOut}>
+            <img src="https://image.flaticon.com/icons/svg/1828/1828479.svg" alt="Sign Out"/>
         </button>
     </Link>
 );
