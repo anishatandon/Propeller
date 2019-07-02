@@ -38,5 +38,4 @@ class Firebase {
     users = () => this.db.ref('users');
 }
 
-
 export default Firebase;

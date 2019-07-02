@@ -21,6 +21,31 @@ button {
   height: 100px;
   border: solid white;
 }
+
+.iconbutton {
+  background-color: purple;
+  color: white;
+  font-family: Tahoma;
+  font-weight: bold;
+  border: purple;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  border: solid white;
+}
+
+/* .smallbutton {
+  background-color: purple;
+  color: white;
+  font-family:Tahoma;
+  font-weight: bold;
+  border: purple;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  border: solid white;
+} */
+
 .all {
   color: purple;
   font-family: Tahoma;
@@ -48,6 +73,7 @@ h1 {
   text-align: center;
   font-family: Tahoma;
 }
+
 h3, form {
   font-family: Tahoma;
   font-weight: bold;
@@ -57,3 +83,13 @@ button {
   font-family: Tahoma;
   text-align: center;
 }
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+/* .smallimg {
+  width: 666px;
+  height: 666px;
+} */
