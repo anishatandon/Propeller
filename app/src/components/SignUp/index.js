@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { SignInLink } from '../SignIn'
-import { withFirebase } from '../Firebase';
+// import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import { userInfo } from 'os';
 
@@ -139,7 +139,7 @@ const SignUpLink = () => (
 
 const SignUpForm = compose(
   withRouter,
-  withFirebase,
+  // withFirebase,
 )(SignUpFormBase);
 
 export default SignUpPage;

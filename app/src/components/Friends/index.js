@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withAuthorization } from '../Session'
+// import { withAuthorization } from '../Session'
 
 const FriendsPage = () => (
   <div>
@@ -8,6 +8,8 @@ const FriendsPage = () => (
   </div>
 );
 
-const condition = authUser => !!authUser; 
+// const condition = authUser => !!authUser; 
 
-export default  withAuthorization(condition)(FriendsPage);
+// export default  withAuthorization(condition)(FriendsPage);
+
+export default FriendsPage;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withAuthorization } from '../Session';
+// import { withAuthorization } from '../Session';
 import moment from 'moment';
 import AddTaskButton from '../AddTaskButton';
 // import { Link } from 'react-router-dom';
@@ -16,6 +16,8 @@ const HomePage = () => (
   </div>
 );
 
-const condition = authUser => !!authUser;
+// const condition = authUser => !!authUser;
 
-export default withAuthorization(condition)(HomePage);
+// export default withAuthorization(condition)(HomePage);
+
+export default HomePage;
