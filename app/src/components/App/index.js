@@ -15,10 +15,10 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import Calendar from '../Calendar';
 import FriendsPage from '../Friends';
+import TodosPage from '../Todos/Todos';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
-import Signin from '../Auth/SignIn/SignIn';
-// import SignInPage from '../Auth/SignIn';
+import SignInPage from '../Auth/SignIn/SignIn';
 import SignUpPage from '../Auth/SignUp/SignUp';
 import SignOut from '../Auth/SignOut/SignOut';
 
@@ -37,8 +37,9 @@ const App = ({ loggedIn }) => {
                     <Route path={ROUTES.CALENDAR} component={Calendar} />
                     <Route path={ROUTES.FRIENDS} component={FriendsPage} />
                     <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+                    <Route path={ROUTES.TODOS} component={TodosPage} />
                     <Route path={ROUTES.ADMIN} component={AdminPage} />
-                    <Route path="/signOut" component={SignOut} />
+                    <Route path={ROUTES.SIGN_OUT} component={SignOut} />
                     <Redirect to={ROUTES.HOME} />
                 </Switch>
             </>
@@ -48,7 +49,7 @@ const App = ({ loggedIn }) => {
         routes = (
             <Switch>
                 <Route exact path={ROUTES.LANDING} component={LandingPage} />
-                {/* <Route path={ROUTES.SIGN_IN} component={SignInPage} /> */}
+                <Route path={ROUTES.SIGN_IN} component={SignInPage} />
                 <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} /> 
                 {/* <Route path={ROUTES.LOGIN} component={LoginPage} /> */}
                 <Route path={ROUTES.SIGN_UP} component={SignUpPage} />

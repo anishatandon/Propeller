@@ -54,4 +54,4 @@ const Heading = (children, color, noMargin, size) => {
     )
 }
 
-export default Heading
+export default Heading;

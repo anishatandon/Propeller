@@ -46,12 +46,12 @@ const Signin = ({ signin, loading, error, cleanUp }) => {
         >
           {({ isSubmitting, isValid }) => (
             <FormWrapper>
-              <Heading noMargin size="h1" color="white">
+              <h1>
                 Sign in to your account
-              </Heading>
-              <Heading bold size="h4" color="white">
+              </h1>
+              <h4>
                 Fill in your details to sign in to your account
-              </Heading>
+              </h4>
               <StyledForm>
                 <Field
                   type="email"
