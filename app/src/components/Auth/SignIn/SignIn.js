@@ -27,68 +27,71 @@ const SigninSchema = Yup.object().shape({
 })
 
 // const Signin = ({ signin, loading, error, cleanUp }) => {
-const Signin = () => {
   // useEffect(() => {
   //   return () => {
   //     cleanUp();
   //   };
   // }, [cleanUp]);
-
+const Signin = () => {
   return (
-      <Formik
-        initialValues={{
-          email: '',
-          password: '',
-        }}
-        validationSchema={SigninSchema}
-        onSubmit={async (values, { setSubmitting }) => {
-          console.log(values)
-          // await signin(values);
-          // setSubmitting(false);
-        }}
-      >
-        {({ isSubmitting, isValid }) => (
-          <FormWrapper>
-            <Heading noMargin size="h1" color="white">
-              Sign in to your account
-            </Heading>
-            <Heading bold size="h4" color="white">
-              Fill in your details to sign in to your account
-            </Heading>
-            <StyledForm>
-              <Field
-                type="email"
-                name="email"
-                placeholder="Email..."
-                component={Input}
-              />
-              <Field
-                type="password"
-                name="password"
-                placeholder="Password..."
-                component={Input}
-              />
-              {/* <Button
-                disabled={!isValid || isSubmitting}
-                loading={loading ? 'Signing in...' : null}
-                type="submit"
-              >
-                Sign In
-              </Button> */}
-              <Button disabled={!isValid} type="submit">
-                Login
-              </Button>
-              {/* <MessageWrapper>
-                <Message error show={error}>
-                  {error}
-                </Message>
-              </MessageWrapper> */}
-            </StyledForm>
-          </FormWrapper>
-        )}
-      </Formik>
-    );
-  };
+    <Formik
+      initialValues={{
+        email: '',
+        password: '',
+      }}
+      validationSchema={SigninSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        console.log(values);
+      }}
+    >
+      {/* onSubmit={async (values, { setSubmitting }) => {
+        console.log(values)
+        await signin(values);
+        setSubmitting(false);
+      }}
+    > */}
+      {({ isSubmitting, isValid }) => (
+        <FormWrapper>
+          <Heading noMargin size="h1" color="white">
+            Sign in to your account
+          </Heading>
+          <Heading bold size="h4" color="white">
+            Fill in your details to sign in to your account
+          </Heading>
+          <StyledForm>
+            <Field
+              type="email"
+              name="email"
+              placeholder="Email..."
+              component={Input}
+            />
+            <Field
+              type="password"
+              name="password"
+              placeholder="Password..."
+              component={Input}
+            />
+            {/* <Button
+              disabled={!isValid || isSubmitting}
+              loading={loading ? 'Signing in...' : null}
+              type="submit"
+            >
+              Sign In
+            </Button> */}
+            <Button disabled={!isValid} type="submit">
+              Login
+            </Button>
+            {/* <MessageWrapper>
+              <Message error show={error}>
+                {error}
+              </Message>
+            </MessageWrapper> */}
+          </StyledForm>
+        </FormWrapper>
+      )}
+    </Formik>
+  );
+};
 
 export default Signin
     
