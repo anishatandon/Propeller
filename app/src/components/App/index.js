@@ -27,7 +27,6 @@ import * as ROUTES from '../../constants/routes';
 
 
 const App = ({ loggedIn }) => {
-    console.log("app", loggedIn.uid)
     let routes;
     if (loggedIn.uid) {
         routes = (
