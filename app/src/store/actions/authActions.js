@@ -10,8 +10,6 @@ export const signUp = data => async(dispatch, getState, {getFirebase, getFiresto
         const res = await firebase
             .auth()
             .createUserWithEmailAndPassword(data.email, data.password);
- 
-        console.log(res.user.uid);
 
         await firestore
             .collection('users')
