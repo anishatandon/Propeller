@@ -12,6 +12,9 @@ const HomePage = () => (
     <h1>
       Tasks for {moment().format('dddd, LL')}
     </h1>
+    <h1>
+      Fix this freaking app!!
+    </h1>
     <AddTaskButton/>
   </div>
 );

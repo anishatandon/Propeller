@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import SignOutButton from '../SignOut';
-import * as ROUTES from '../../constants/routes';
+// import * as ROUTES from '../../constants/routes';
 
 // import { AuthUserContext } from '../Session';
 
