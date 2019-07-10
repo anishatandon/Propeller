@@ -19,7 +19,7 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import Signin from '../Auth/SignIn/SignIn';
 // import SignInPage from '../Auth/SignIn';
-// import SignUpPage from '../Auth/SignUp/SignUp';
+import SignUpPage from '../Auth/SignUp/SignUp';
 import SignOut from '../Auth/SignOut/SignOut';
 
 import * as ROUTES from '../../constants/routes';
@@ -27,6 +27,7 @@ import * as ROUTES from '../../constants/routes';
 
 
 const App = ({ loggedIn }) => {
+    console.log("app", loggedIn.uid)
     let routes;
     if (loggedIn.uid) {
         routes = (
@@ -51,7 +52,7 @@ const App = ({ loggedIn }) => {
                 {/* <Route path={ROUTES.SIGN_IN} component={SignInPage} /> */}
                 <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} /> 
                 {/* <Route path={ROUTES.LOGIN} component={LoginPage} /> */}
-                {/* <Route path={ROUTES.SIGN_UP} component={SignUpPage} /> */}
+                <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
                 <Redirect to={ROUTES.LANDING} />
             </Switch>
         )
