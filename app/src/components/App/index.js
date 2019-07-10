@@ -28,8 +28,9 @@ import * as ROUTES from '../../constants/routes';
 
 
 const App = ({ loggedIn }) => {
+    console.log("app", loggedIn.uid)
     let routes;
-    if (loggedIn) {
+    if (loggedIn.uid) {
         routes = (
             <>
                 {/* <Navbar /> */}
@@ -62,7 +63,7 @@ const App = ({ loggedIn }) => {
         <>
         <DevNavBar />
         <Navigation loggedIn={loggedIn}/>
-        <Switch>{routes}</Switch>
+        {routes}
         </>
         // <Router>
         //     <div>
@@ -105,7 +106,7 @@ const App = ({ loggedIn }) => {
 }
 
 const mapStateToProps = ({firebase}) => ({
-    loggedIn: firebase.auth.uid ? true : null,
+    loggedIn: firebase.auth,
 });
 
 // export default withAuthentication(App);
