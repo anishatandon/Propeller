@@ -18,6 +18,7 @@ import * as ROUTES from '../../constants/routes';
 // );
 
 const Navigation = (loggedIn) => {
+    console.log("nav logged", {loggedIn})
     let Navbar;
 
     if (loggedIn) {

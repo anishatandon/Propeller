@@ -11,16 +11,15 @@ import { connect } from 'react-redux';
 
 import { Navigation, DevNavBar } from '../Navigation';
 import LandingPage from '../Landing';
-// import SignUpPage from '../SignUp';
-// import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import Calendar from '../Calendar';
 import FriendsPage from '../Friends';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
-import LoginPage from '../Auth/Login/Login';
-import SignUpPage from '../Auth/SignUp/SignUp';
+import Signin from '../Auth/SignIn/SignIn';
+// import SignInPage from '../Auth/SignIn';
+// import SignUpPage from '../Auth/SignUp/SignUp';
 import SignOut from '../Auth/SignOut/SignOut';
 
 import * as ROUTES from '../../constants/routes';
@@ -28,6 +27,7 @@ import * as ROUTES from '../../constants/routes';
 
 
 const App = ({ loggedIn }) => {
+    console.log('loggedIn', {loggedIn})
     let routes;
     if (loggedIn) {
         routes = (
@@ -49,11 +49,10 @@ const App = ({ loggedIn }) => {
         routes = (
             <Switch>
                 <Route exact path={ROUTES.LANDING} component={LandingPage} />
-                {/* <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-                <Route path={ROUTES.SIGN_UP} component={SignUpPage} /> */}
+                {/* <Route path={ROUTES.SIGN_IN} component={SignInPage} /> */}
                 <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} /> 
                 {/* <Route path={ROUTES.LOGIN} component={LoginPage} /> */}
-                <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+                {/* <Route path={ROUTES.SIGN_UP} component={SignUpPage} /> */}
                 <Redirect to={ROUTES.LANDING} />
             </Switch>
         )
