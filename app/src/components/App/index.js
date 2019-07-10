@@ -26,47 +26,46 @@
 // // import { withAuthentication } from '../Session';
 
 
-// const App = ({ loggedIn }) => {
-//     console.log('loggedIn', {loggedIn})
-//     let routes;
-//     if (loggedIn) {
-//         routes = (
-//             <>
-//                 {/* <Navbar /> */}
-//                 <Switch> 
-//                     <Route path={ROUTES.HOME} component={HomePage} />
-//                     <Route path={ROUTES.CALENDAR} component={Calendar} />
-//                     <Route path={ROUTES.FRIENDS} component={FriendsPage} />
-//                     <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-//                     <Route path={ROUTES.ADMIN} component={AdminPage} />
-//                     <Route path="/signOut" component={SignOut} />
-//                     <Redirect to={ROUTES.HOME} />
-//                 </Switch>
-//             </>
-//         );
-//     }
-//     else {
-//         routes = (
-//             <Switch>
-//                 <Route exact path={ROUTES.LANDING} component={LandingPage} />
-//                 {/* <Route path={ROUTES.SIGN_IN} component={SignInPage} /> */}
-//                 <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} /> 
-//                 {/* <Route path={ROUTES.LOGIN} component={LoginPage} /> */}
-//                 {/* <Route path={ROUTES.SIGN_UP} component={SignUpPage} /> */}
-//                 <Redirect to={ROUTES.LANDING} />
-//             </Switch>
-//         )
-//     }
-//     return(
-//         <>
-//         <DevNavBar />
-//         <Navigation loggedIn={loggedIn}/>
-//         <Switch>{routes}</Switch>
-//         </>
-//         // <Router>
-//         //     <div>
-//         //         <Navbar />
-//         //         {/* <Navigation /> */}
+const App = ({ loggedIn }) => {
+    let routes;
+    if (loggedIn.uid) {
+        routes = (
+            <>
+                {/* <Navbar /> */}
+                <Switch> 
+                    <Route path={ROUTES.HOME} component={HomePage} />
+                    <Route path={ROUTES.CALENDAR} component={Calendar} />
+                    <Route path={ROUTES.FRIENDS} component={FriendsPage} />
+                    <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+                    <Route path={ROUTES.ADMIN} component={AdminPage} />
+                    <Route path="/signOut" component={SignOut} />
+                    <Redirect to={ROUTES.HOME} />
+                </Switch>
+            </>
+        );
+    }
+    else {
+        routes = (
+            <Switch>
+                <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                {/* <Route path={ROUTES.SIGN_IN} component={SignInPage} /> */}
+                <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} /> 
+                {/* <Route path={ROUTES.LOGIN} component={LoginPage} /> */}
+                <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+                <Redirect to={ROUTES.LANDING} />
+            </Switch>
+        )
+    }
+    return(
+        <>
+        <DevNavBar />
+        <Navigation loggedIn={loggedIn}/>
+        {routes}
+        </>
+        // <Router>
+        //     <div>
+        //         <Navbar />
+        //         {/* <Navigation /> */}
                 
 //                 // <Route exact path={ROUTES.LANDING} component={LandingPage} />
 //                 // <Route path={ROUTES.SIGN_IN} component={SignInPage} />
@@ -103,9 +102,9 @@
 //     );
 // }
 
-// const mapStateToProps = ({firebase}) => ({
-//     loggedIn: firebase.auth.uid ? true : null,
-// });
+const mapStateToProps = ({firebase}) => ({
+    loggedIn: firebase.auth,
+});
 
 // // export default withAuthentication(App);
 

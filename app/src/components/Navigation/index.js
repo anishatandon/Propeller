@@ -17,11 +17,10 @@ import SignOutButton from '../SignOut';
 //     </div>
 // );
 
-const Navigation = (loggedIn) => {
-    console.log("nav logged", {loggedIn})
+const Navigation = ({ loggedIn }) => {
     let Navbar;
 
-    if (loggedIn) {
+    if (loggedIn.uid) {
         Navbar = (
             <div>
                 <Link to={ROUTES.HOME}>Home 
@@ -95,7 +94,7 @@ const DevNavBar = () => (
 );
 
 const mapStateToProps = ({firebase}) => ({
-    loggedIn: firebase.auth
+    loggedIn: firebase.auth,
 });
 
 export default connect(mapStateToProps)(Navigation);
