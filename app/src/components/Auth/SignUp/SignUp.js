@@ -1,58 +1,64 @@
-// import React, {useEffect} from 'react';
-import React from 'react';
+import React, {useEffect} from 'react';
+import { connect } from 'react-redux'
 // import { Formik, Form, Field } from 'formik';
 import { Formik, Field } from 'formik';
-// import { connect } from 'react-redux';
 import * as Yup from 'yup';
+import styled from 'styled-components'
 
 import { FormWrapper, StyledForm } from '../../../hoc/layout/elements';
 import Input from '../../UI/Input';
 import Button from '../../UI/Button';
-// import Message from '../../UI/Message';
 import Heading from '../../../components/UI/Heading'
+import Message from '../../UI/Message';
 
-// import * as actions from '../../../store/actions';
+import * as actions from '../../../store/actions';
+
+const MessageWrapper = styled.div`
+    position: absolute;
+    bottom: 0;
+`;
 
 const SignUpSchema = Yup.object().shape({
     firstName: Yup.string()
         .required('Your first name is required'),
     lastName: Yup.string() 
         .required('Your last name is required'),
-    // username: Yup.string()
-    // .required('Username is required.')
+    username: Yup.string()
+        .required('Username is required.'),
     // .trim('Username cannot have whitespace') // not working. trying to not use this for validation instead just automatically remove whitespace
     // .strict(true).lowercase('Username needs to be lowercase'),
     email: Yup.string()
         .email('Invalid email.')
         .required('The email is required.'),
-    password: Yup.string().required('The password is required.').min(8, 'The password is too short'), // Firebase requires passwords to be ≥ 8 chars
+    password: Yup.string()
+        .required('The password is required.')
+        .min(8, 'The password is too short'), // Firebase requires passwords to be ≥ 8 chars
     confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], "Password doesn't match")
         .required('You need to confirm your password.'),
 });
 
-// const SignUp = ({ signUp, loading, error, cleanUp }) => {
-    // useEffect(() => {
-    //     return () => {
-    //         cleanUp();
-    //     };
-    // }, [cleanUp]);
-const SignUp = () => {
+const SignUp = ({ signUp, loading, error, cleanUp }) => {
+    useEffect(() => {
+        return () => {
+            cleanUp();
+        };
+    }, [cleanUp]);
+
     return(
         <Formik
             initialValues={{
                 firstName: '',
                 lastName: '',
-                // username: '',
+                username: '',
                 email: '',
                 password: '',
                 confirmPassword: '',
             }}
             validationSchema={SignUpSchema}
             onSubmit={async (values, { setSubmitting }) => {
-                console.log(values);
-                // await signUp(values)
-                // setSubmitting(false)
+                await signUp(values)
+                setSubmitting(false)
             }}
         >
             {({ isSubmitting, isValid }) => (
@@ -63,7 +69,6 @@ const SignUp = () => {
                     <Heading bold size="h4" color="white">
                         Fill in your details to register your account
                     </Heading>
-                    {/* <h1>Sign up for an account</h1> */}
                     <StyledForm>
                         <Field 
                             type="text"
@@ -77,12 +82,12 @@ const SignUp = () => {
                             placeholder="Last name..."
                             component={Input}
                         />
-                        {/* <Field 
+                        <Field 
                             type="text"
                             name="username"
                             placeholder="Username..."
                             component={Input}
-                        /> */}
+                        />
                         <Field 
                             type="email"
                             name="email"
@@ -101,13 +106,18 @@ const SignUp = () => {
                             placeholder="Confirm your password..."
                             component={Input}
                         />
-                        {/* <Button disabled={!isValid || isSubmitting } loading={loading ? 'Signing Up' : null }type="submit">
-                            Sign Up
-                        </Button> */}
-                        <Button disabled={!isValid} type="submit">
+                        <Button
+                            disabled={!isValid || isSubmitting}
+                            loading={loading ? 'Signing up...' : null}
+                            type="submit"
+                        >
                             Sign up
                         </Button>
-                        {/* <Message error show={error}>{error}</Message> */}
+                        <MessageWrapper>
+                            <Message errorshow={error}>
+                                {error}
+                            </Message>
+                        </MessageWrapper>
                     </StyledForm>
                 </FormWrapper>
             )}
@@ -115,16 +125,17 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+const mapStateToProps = ({auth}) => ({
+    loading: auth.loading,
+    error: auth.error,
+})
 
-// const mapStateToProps = ({auth}) => ({
-//     loading: auth.loading,
-//     error: auth.error,
-// })
+const mapDispatchToProps = {
+    signUp: actions.signUp,
+    cleanUp: actions.clean,
+};
 
-// const mapDispatchToProps = {
-//     signUp: actions.signUp,
-//     cleanUp: actions.clean,
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SignUp);

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux'
 
 import Navbar from '../../components/Navigation/Navbar';
 import SideDrawer from '../../components/Navigation/SideDrawer';
@@ -13,12 +14,16 @@ const MainWrapper = styled.main`
   justify-content: center;
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, signedIn }) => (
   <>
-    <Navbar />
-    <SideDrawer />
+    <Navbar signedIn={signedIn} />
+    <SideDrawer signedIn={signedIn}/>
     <MainWrapper>{children}</MainWrapper>
   </>
 );
 
-export default Layout;
+const mapStateToProps = ({ firebase }) => ({
+  signedIn: firebase.auth,
+})
+
+export default connect(mapStateToProps)(Layout);

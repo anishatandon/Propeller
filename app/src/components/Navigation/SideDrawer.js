@@ -15,6 +15,7 @@ const FixedWrapper = styled.header`
   width: 100%;
   height: 6rem;
   display: none;
+
   @media ${props => props.theme.mediaQueries.smallest} {
     display: flex;
   }
@@ -43,12 +44,13 @@ const Menu = styled.div`
   transform: translateY(${props => (props.opened ? '0%' : '-100%')});
   transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   display: none;
+
   @media ${props => props.theme.mediaQueries.smallest} {
     display: flex;
   }
 `;
 
-const SideDrawer = () => {
+const SideDrawer = ({ signedIn }) => {
   const [isOpened, setIsOpened] = useState(false);
   return (
     <>
@@ -59,7 +61,11 @@ const SideDrawer = () => {
         </Wrapper>
       </FixedWrapper>
       <Menu opened={isOpened}>
-        <NavItems mobile clicked={() => setIsOpened(false)} />
+        <NavItems
+          signedIn={signedIn}
+          mobile
+          clicked={() => setIsOpened(false)}
+        />
       </Menu>
     </>
   );
