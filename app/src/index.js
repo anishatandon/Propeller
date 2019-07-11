@@ -19,26 +19,52 @@
 // serviceWorker.unregister();
 
 
+// import ReactDOM from 'react-dom';
+// import React from 'react';
+// import { BrowserRouter } from 'react-router-dom';
+// import { Provider } from 'react-redux';
+
+// import store from './store';
+// import App from './components/App';
+
+// const root = document.getElementById('root')
+
+
+// ReactDOM.render(<div>Loading...</div>, root);
+
+// store.firebaseAuthIsReady.then(() => {
+//     ReactDOM.render (
+//         <Provider store={store}>
+//             <BrowserRouter>
+//                 <App/>    
+//             </BrowserRouter>
+//         </Provider>,
+//         root
+//     );
+// })
+
 import ReactDOM from 'react-dom';
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 
-import store from './store';
-import App from './components/App';
+import theme from './utils/theme';
+import GlobalStyles from './utils/global';
+import store from './store'
 
-const root = document.getElementById('root')
+import App from './App';
 
-
-ReactDOM.render(<div>Loading...</div>, root);
-
-store.firebaseAuthIsReady.then(() => {
-    ReactDOM.render (
-        <Provider store={store}>
-            <BrowserRouter>
-                <App/>    
-            </BrowserRouter>
-        </Provider>,
-        root
-    );
-})
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <>
+          <App />
+          <GlobalStyles />
+        </>
+      </ThemeProvider>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
+);

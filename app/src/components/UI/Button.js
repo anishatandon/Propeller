@@ -25,10 +25,10 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ children, disabled, loading, ...rest }) => {
+const Button = ({ children, disabled, ...rest }) => {
   return (
     <StyledButton disabled={disabled} {...rest}>
-      {loading ? loading : children}
+      {children}
     </StyledButton>
   );
 };

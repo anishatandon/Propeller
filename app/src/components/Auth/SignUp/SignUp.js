@@ -1,45 +1,49 @@
-import React, {useEffect} from 'react';
-import { Formik, Form, Field } from 'formik';
-import { connect } from 'react-redux';
+// import React, {useEffect} from 'react';
+import React from 'react';
+// import { Formik, Form, Field } from 'formik';
+import { Formik, Field } from 'formik';
+// import { connect } from 'react-redux';
 import * as Yup from 'yup';
 
 import { FormWrapper, StyledForm } from '../../../hoc/layout/elements';
 import Input from '../../UI/Input';
 import Button from '../../UI/Button';
-import Message from '../../UI/Message';
+// import Message from '../../UI/Message';
+import Heading from '../../../components/UI/Heading'
 
-import * as actions from '../../../store/actions';
+// import * as actions from '../../../store/actions';
 
 const SignUpSchema = Yup.object().shape({
     firstName: Yup.string()
-    .required('Your first name is required'),
+        .required('Your first name is required'),
     lastName: Yup.string() 
-    .required('Your last name is required'),
-    username: Yup.string()
-    .required('Username is required.')
+        .required('Your last name is required'),
+    // username: Yup.string()
+    // .required('Username is required.')
     // .trim('Username cannot have whitespace') // not working. trying to not use this for validation instead just automatically remove whitespace
-    .strict(true).lowercase('Username needs to be lowercase'),
+    // .strict(true).lowercase('Username needs to be lowercase'),
     email: Yup.string()
-    .email('Invalid email.')
-    .required('The email is required.'),
+        .email('Invalid email.')
+        .required('The email is required.'),
     password: Yup.string().required('The password is required.').min(8, 'The password is too short'), // Firebase requires passwords to be ≥ 8 chars
     confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], "Password doesn't match")
-    .required('You need to confirm your password.'),
+        .oneOf([Yup.ref('password'), null], "Password doesn't match")
+        .required('You need to confirm your password.'),
 });
 
-const SignUp = ({ signUp, loading, error, cleanUp }) => {
-    useEffect(() => {
-        return () => {
-            cleanUp();
-        };
-    }, [cleanUp]);
+// const SignUp = ({ signUp, loading, error, cleanUp }) => {
+    // useEffect(() => {
+    //     return () => {
+    //         cleanUp();
+    //     };
+    // }, [cleanUp]);
+const SignUp = () => {
     return(
         <Formik
             initialValues={{
                 firstName: '',
                 lastName: '',
-                username: '',
+                // username: '',
                 email: '',
                 password: '',
                 confirmPassword: '',
@@ -47,54 +51,63 @@ const SignUp = ({ signUp, loading, error, cleanUp }) => {
             validationSchema={SignUpSchema}
             onSubmit={async (values, { setSubmitting }) => {
                 console.log(values);
-                await signUp(values)
-                setSubmitting(false)
+                // await signUp(values)
+                // setSubmitting(false)
             }}
         >
             {({ isSubmitting, isValid }) => (
                 <FormWrapper>
-                    <h1>Sign Up for a New Account</h1>
+                    <Heading noMargin size="h1" color="white">
+                        Sign up for an account
+                    </Heading>
+                    <Heading bold size="h4" color="white">
+                        Fill in your details to register your account
+                    </Heading>
+                    {/* <h1>Sign up for an account</h1> */}
                     <StyledForm>
                         <Field 
                             type="text"
                             name="firstName"
-                            placeholder="Your first name"
+                            placeholder="First name..."
                             component={Input}
                         />
                         <Field 
                             type="text"
                             name="lastName"
-                            placeholder="Your last name"
+                            placeholder="Last name..."
                             component={Input}
                         />
-                        <Field 
+                        {/* <Field 
                             type="text"
                             name="username"
-                            placeholder="Your username"
+                            placeholder="Username..."
                             component={Input}
-                        />
+                        /> */}
                         <Field 
                             type="email"
                             name="email"
-                            placeholder="Your email"
+                            placeholder="Email..."
                             component={Input}
                         />
                         <Field
                             type="password"
                             name="password"
-                            placeholder="Your password"
+                            placeholder="Password..."
                             component={Input}
                         />
                         <Field
                             type="password"
                             name="confirmPassword"
-                            placeholder="Confirm your password"
+                            placeholder="Confirm your password..."
                             component={Input}
                         />
-                        <Button disabled={!isValid || isSubmitting } loading={loading ? 'Signing Up' : null }type="submit">
+                        {/* <Button disabled={!isValid || isSubmitting } loading={loading ? 'Signing Up' : null }type="submit">
                             Sign Up
+                        </Button> */}
+                        <Button disabled={!isValid} type="submit">
+                            Sign up
                         </Button>
-                        <Message error show={error}>{error}</Message>
+                        {/* <Message error show={error}>{error}</Message> */}
                     </StyledForm>
                 </FormWrapper>
             )}
@@ -102,16 +115,16 @@ const SignUp = ({ signUp, loading, error, cleanUp }) => {
     );
 };
 
-const mapStateToProps = ({auth}) => ({
-    loading: auth.loading,
-    error: auth.error,
-})
+export default SignUp;
 
-const mapDispatchToProps = {
-    signUp: actions.signUp,
-    cleanUp: actions.clean,
-};
+// const mapStateToProps = ({auth}) => ({
+//     loading: auth.loading,
+//     error: auth.error,
+// })
 
+// const mapDispatchToProps = {
+//     signUp: actions.signUp,
+//     cleanUp: actions.clean,
+// };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+// export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
