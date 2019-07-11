@@ -24,7 +24,16 @@ const NavItems = ({ mobile, clicked, signedIn }) => {
           Home
         </NavItem>
         <NavItem mobile={mobile} clicked={clicked} link="/todos">
-          Todos
+          Add Tasks
+        </NavItem>
+        <NavItem mobile={mobile} clicked={clicked} link="/calendar">
+          Calendar
+        </NavItem>
+        <NavItem mobile={mobile} clicked={clicked} link="/friends">
+          Friends
+        </NavItem>
+        <NavItem mobile={mobile} clicked={clicked} link="/settings">
+          Settings
         </NavItem>
         <NavItem mobile={mobile} clicked={clicked} link="/signout">
           Signout

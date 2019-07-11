@@ -8,6 +8,9 @@ import Signin from './components/Auth/SignIn/SignIn';
 import SignUp from './components/Auth/SignUp/SignUp';
 import Signout from './components/Auth/SignOut/SignOut';
 import TodoList from './components/AddTask/TodoList';
+import Calendar from './components/Calendar/index';
+import FriendsPage from './components/Friends/index';
+import AccountPage from './components/Account';
 
 const App = ({ signedIn }) => {
   console.log(signedIn);
@@ -18,6 +21,9 @@ const App = ({ signedIn }) => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/todos" component={TodoList} />
+        <Route exact path="/calendar" component={Calendar} />
+        <Route exact path="/friends" component={FriendsPage} />
+        <Route exact path="/settings" component={AccountPage} />
         <Route exact path="/signout" component={Signout} />
         <Redirect to="/" />
       </Switch>
