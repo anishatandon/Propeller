@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     aligh-self: flex-start;
     height: 100%;
     min-height: calc(100vh - 6rem);
-    bacground-color: var(--olor-mainLight);
+    background-color: var(--color-mainLight);
 `;
 
 const InnerWrapper = styled.div`
@@ -20,22 +20,18 @@ const InnerWrapper = styled.div`
     padding: 5rem 4rem;
 `;
 
-const Todos = () => {
+const TodoList = () => {
     return (
-        <Wrapper>
-            <Container>
-                <InnerWrapper>
-                    <Heading noMargin size="h1" color="white">
-                        Your Todos
-                    </Heading>
-                    <Heading bold size="h4" color="white">
-                        Let's get this bread
-                    </Heading>
-                    <AddTodo />
-                </InnerWrapper>
-            </Container>
-        </Wrapper>
+        <div>
+            {/* <Heading noMargin size="h1" color="white">
+                Your Todos
+            </Heading>
+            <Heading bold size="h4" color="white">
+                Let's get this bread
+            </Heading> */}
+            <AddTodo />
+        </div>
     )
 };
 
-export default Todos;
+export default TodoList;
