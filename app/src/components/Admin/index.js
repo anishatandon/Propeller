@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { withFirebase } from '../Firebase';
+// import { withFirebase } from '../Firebase';
 
 class AdminPage extends Component {
     constructor(props) {
@@ -12,7 +12,6 @@ class AdminPage extends Component {
         };
     }
 
-    
     componentDidMount() {
         this.setState({ loading: true });
 
@@ -50,10 +49,10 @@ class AdminPage extends Component {
     }
 }
 
-export const UserList = ({ users }) => (
+const UserList = ({ users }) => (
     <ul>
         {users.map(user => (
-           <li key={user.uid}>
+            <li key={user.uid}>
                 <span>
                     <strong>ID:</strong> {user.uid}
                 </span>
@@ -68,4 +67,6 @@ export const UserList = ({ users }) => (
     </ul>
 );
 
-export default withFirebase(AdminPage);
+// export UserList
+// export default withFirebase(AdminPage);
+export default AdminPage;

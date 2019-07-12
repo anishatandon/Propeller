@@ -1,4 +1,4 @@
-import { withAuthorization } from '../Session';
+// import { withAuthorization } from '../Session';
 import React from 'react';
 import moment from 'moment';
 import './index.css';
@@ -173,6 +173,7 @@ export class Calendar extends React.Component {
         )
     }
 }
-const condition = authUser => !!authUser;
+// const condition = authUser => !!authUser;
 
-export default  withAuthorization(condition)(Calendar);
+// export default  withAuthorization(condition)(Calendar);
+export default Calendar;

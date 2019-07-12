@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Modal from '../Modal/modal'
+import Modal from './modal'
 
 class AddTaskButton extends Component {
     constructor(props) {
@@ -17,8 +17,8 @@ class AddTaskButton extends Component {
     render() {
         return (
             <div className="AddTaskButton">
-                <button onClick={this.toggleModal}>
-                    Add Task
+                <button onClick={this.toggleModal} className="iconbutton">
+                    <img src="https://image.flaticon.com/icons/svg/149/149705.svg" alt="Add Task"/>
                 </button>
 
                 <Modal show={this.state.isOpen}
