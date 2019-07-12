@@ -10,13 +10,22 @@ import Signout from './components/Auth/SignOut/SignOut';
 import TodoList from './components/Todos/Todos';
 import Calendar from './components/Calendar/index';
 import FriendsPage from './components/Friends/index';
-import AccountPage from './components/Account';
+import AccountPage from './components/Account/index';
+import VerifyEmail from './components/Auth/VerifyEmail/VerifyEmail';
+import RecoverPassword from './components/Auth/RecoverPassword/RecoverPassword';
 
-const App = ({ signedIn }) => {
-  console.log(signedIn);
-
+const App = ({ signedIn, emailVerified }) => {
   let routes;
-  if (signedIn) {
+
+  if (signedIn && !emailVerified) {
+    routes = (
+      <Switch>
+        <Route exact path="/verify-email" component={VerifyEmail} />
+        <Route exact path="/signout" component={Signout} />
+        <Redirect to="/verify-email" />
+      </Switch>
+    )
+  } else if (signedIn && emailVerified) {
     routes = (
       <Switch>
         <Route exact path="/" component={HomePage} />
@@ -33,6 +42,7 @@ const App = ({ signedIn }) => {
       <Switch>
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/recover-password" component={RecoverPassword} />
         <Redirect to="/signin" />
       </Switch>
     );
@@ -42,7 +52,8 @@ const App = ({ signedIn }) => {
 };
 
 const mapStateToProps = ({ firebase }) => ({
-  signedIn: firebase.auth.uid ? true : null,
+  signedIn: firebase.auth.uid,
+  emailVerified: firebase.auth.emailVerified,
 });
 
 export default connect(mapStateToProps)(App)

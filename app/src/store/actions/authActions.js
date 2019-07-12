@@ -4,7 +4,7 @@ import * as actions from './actionTypes';
 export const signUp = data => async (
     dispatch,
     getState,
-    {getFirebase, getFirestore}
+    { getFirebase, getFirestore }
 ) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
@@ -13,7 +13,10 @@ export const signUp = data => async (
         const res = await firebase
             .auth()
             .createUserWithEmailAndPassword(data.email, data.password);
-        console.log(res.user.uid)
+
+            //Send the verification email
+            const user = firebase.auth().currentUser;
+            await user.sendEmailVerification();
 
         await firestore
             .collection('users')
@@ -21,7 +24,7 @@ export const signUp = data => async (
             .set({
                 firstName: data.firstName,
                 lastName: data.lastName,
-                // username: data.username
+                username: data.username
              })
         dispatch({ type: actions.AUTH_SUCCESS });
     } catch (err) {
@@ -31,31 +34,63 @@ export const signUp = data => async (
 };
 
 // Sign In action creator
-export const signIn = (data) => async (dispatch, getState, { getFirebase }) => {
+export const signIn = data => async (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
     dispatch({ type: actions.AUTH_START })
     try {
         await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
-    } catch(err) {
+        dispatch({ type: actions.AUTH_SUCCESS });
+    } catch (err) {
         dispatch({ type: actions.AUTH_FAIL, payload: err.message })
     }
+    dispatch({ type: actions.AUTH_END });
 };
 
 // Sign Out action creator
 export const signOut = () => async (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
-    // dispatch({type: actions.AUTH_START});
     try {
         await firebase.auth().signOut();
-        // dispatch({type: actions.AUTH_SUCCESS})
-    } catch(err) {
-        // dispatch({type: actions.AUTH_FAIL, payload: err.message});
+    } catch (err) {
         console.log(err.message)
     }
-    // dispatch({type: actions.AUTH_END})
 };
 
 // Clean up messages
 export const clean = () => ({
     type: actions.CLEAN_UP,
 });
+
+//Verify email actionTypes
+export const verifyEmail = () => async (
+    dispatch,
+    getState,
+    {getFirebase}
+) => {
+    const firebase = getFirebase();
+    dispatch({ type: actions.VERIFY_START })
+    try {
+        const user = firebase.auth().currentUser;
+        await user.sendEmailVerification();
+        dispatch({ type: actions.VERIFY_SUCCESS });
+    } catch (err) {
+        dispatch({ type: actions.VERIFY_FAIL, payload: err.message });
+    }
+};
+
+// Send recover password
+export const recoverPassword = data => async (
+    dispatch,
+    getState,
+    {getFirebase}
+) => {
+    const firebase = getFirebase();
+    dispatch({ type: actions.RECOVERY_START})
+    try {
+        //send email here
+        await firebase.auth().sendPasswordResetEmail(data.email);
+        dispatch({ type: actions.RECOVERY_SUCCESS });
+    } catch (err) {
+        dispatch({ type: actions.RECOVERY_FAIL, payload: err.message });
+    }
+};
