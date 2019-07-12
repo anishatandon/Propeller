@@ -12,6 +12,7 @@ class AdminPage extends Component {
         };
     }
 
+    
     componentDidMount() {
         this.setState({ loading: true });
 
@@ -49,10 +50,10 @@ class AdminPage extends Component {
     }
 }
 
-const UserList = ({ users }) => (
+export const UserList = ({ users }) => (
     <ul>
         {users.map(user => (
-            <li key={user.uid}>
+           <li key={user.uid}>
                 <span>
                     <strong>ID:</strong> {user.uid}
                 </span>

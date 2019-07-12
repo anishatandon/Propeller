@@ -1,11 +1,13 @@
-import React from 'react';
+/*import React from 'react';
+import { compose } from 'recompose';
+import { withAuthorization, withAuthentication } from '../Session'
+import { UserList } from '../Admin';
 
-import { withAuthorization } from '../Session'
 
 const FriendsPage = () => (
   <div>
     <h1>Friends</h1>
-    <button>Add Friend</button>
+    <AddFriendForm/>
   </div>
 );
 
@@ -15,22 +17,7 @@ class AddFriendFormBase extends React.Component {
   }
 
   onSubmit = event => {
-    const { displayName, email, passwordOne } = this.state;
-
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne) // creates user in Firebase's internal authentication database (limited access)
-      .then(authUser => { // creates user in Firebase's realtime database (accessible)
-        return this.props.firebase
-          .user(authUser.user.uid) 
-          .set({
-            displayName,
-            email,
-          }); 
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
-    event.preventDefault();
+    const { friendDisplayName, verify } = this.state;
   };
 
   onChange = event => {
@@ -43,7 +30,9 @@ class AddFriendFormBase extends React.Component {
       verify
     } = this.state;
     
-    const isInvalid = 0
+    const isInvalid =
+      friendDisplayName !== UserList.user.displayName
+      verify !== UserList.user.uid
       
 
     return(
@@ -70,7 +59,7 @@ class AddFriendFormBase extends React.Component {
       
       <br></br>
       <button disabled={isInvalid} type="submit">
-        Sign Up
+        Add Friend
       </button>
 
       
@@ -83,5 +72,12 @@ class AddFriendFormBase extends React.Component {
 const condition = authUser => !!authUser; 
 
 export default  withAuthorization(condition)(FriendsPage);
+
+const AddFriendForm = compose(
+  withRouter,
+  withFirebase,
+)(AddFriendFormBase);
+
+export { AddFriendForm };*/
 
 //{error && <p>{error.message}</p>}
