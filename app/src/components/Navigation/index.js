@@ -38,6 +38,7 @@ const Navigation = ({ loggedIn }) => {
                         <img src="https://image.flaticon.com/icons/svg/880/880594.svg" alt="Friends"/>
                     </button> */}
                 </Link>
+                <Link to={ROUTES.TODOS}>Todos</Link>
                 <Link to={ROUTES.ACCOUNT}>Account 
                     {/* <button className = "iconbutton">
                         <img src="https://image.flaticon.com/icons/svg/149/149837.svg" alt="Account"/>
@@ -48,7 +49,7 @@ const Navigation = ({ loggedIn }) => {
                         <img src="https://image.flaticon.com/icons/svg/483/483345.svg" alt="Admin"/>
                     </button> */}
                 </Link>
-                <Link to='/signout'>SignOut</Link>
+                <Link to={ROUTES.SIGN_OUT}>Sign Out</Link>
                 {/* <SignOutButton /> */}
             </div>
         );
@@ -76,6 +77,9 @@ const DevNavBar = () => (
         </Link>
         <Link to={ROUTES.ACCOUNT}>
             Account
+        </Link>
+        <Link to={ROUTES.TODOS}>
+            Todos
         </Link>
         <Link to={ROUTES.ADMIN}>
             Admin
