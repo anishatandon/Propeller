@@ -6,3 +6,5 @@ export {
     recoverPassword,
     clean,
 } from './authActions';
+
+export {addTodo} from './todoActions';
