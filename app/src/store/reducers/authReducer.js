@@ -1,4 +1,5 @@
 import * as actions from '../actions/actionTypes';
+import { stat } from 'fs';
 
 const initialState = {
     error: null,
@@ -11,6 +12,14 @@ const initialState = {
         error: null,
         loading: false,
     },
+    accountEdit: {
+        error: null,
+        loading: false,
+    },
+    deleteUser: {
+        error: null,
+        loading: false,
+    },
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -20,8 +29,26 @@ export default (state = initialState, { type, payload }) => {
                 ...state,
                 error: null,
                 loading: false,
-                verifyEmail: {...state.verifyEmail, loading: false, error: null},
-                recoverPassword: {...state.recoverPassword, loading: false, error: null},
+                verifyEmail: {
+                    ...state.verifyEmail,
+                    loading: false,
+                    error: null
+                },
+                recoverPassword: {
+                    ...state.recoverPassword,
+                    loading: false,
+                    error: null
+                },
+                accountEdit: {
+                    ...state.accountEdit,
+                    loading: false,
+                    error: null,
+                },
+                deleteUser: {
+                    ...state.deleteUser,
+                    loading: false,
+                    error: null,
+                }
             };
 
         case actions.AUTH_START:
@@ -67,6 +94,36 @@ export default (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 recoverPassword: {...state.recoverPassword, loading: false, error: payload }
+            };
+
+        case actions.ACCOUNT_EDIT_START:
+            return {
+                ...state,
+                accountEdit: {...state.accountEdit, loading: true },
+            };
+
+        case actions.ACCOUNT_EDIT_SUCCESS:
+            return {
+                ...state,
+                accountEdit: {...state.accountEdit, loading: false, error: false },
+            };
+
+        case actions.ACCOUNT_EDIT_START:
+            return {
+                ...state,
+                accountEdit: {...state.accountEdit, loading: false, error: payload },
+            };
+
+        case actions.DELETE_START:
+            return {
+                ...state,
+                deleteUser: {...state.deleteUser, loading: true}
+            };
+
+        case actions.DELETE_FAIL:
+            return {
+                ...state,
+                deleteUser: {...state.deleteUser, loading: false, error: payload}
             };
 
         default:

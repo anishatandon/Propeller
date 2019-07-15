@@ -1,7 +1,6 @@
 import React from 'react';
 // import { withAuthorization } from '../Session';
 import moment from 'moment';
-import AddTaskButton from '../AddTaskButton';
 // import { Link } from 'react-router-dom';
 // import * as ROUTES from '../../constants/routes';
 
@@ -15,7 +14,6 @@ const HomePage = () => (
     <h1>
       Fix this freaking app!!
     </h1>
-    <AddTaskButton/>
   </div>
 );
 
