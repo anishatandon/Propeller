@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import Button from '../UI/Button';
 import Heading from '../UI/Heading';
-import Modal from '../AddTaskButton/modal';
+import Modal from '../UI/Modal';
 // import AddTaskButton from '../AddTaskButton' 
 import Input from '../UI/Input';
 import Message from '../UI/Message';
@@ -40,7 +40,7 @@ const AddTodo = ({ addTodo, loading, error }) => {
                 Add Todo
             </Button>
             {/* <button onClick={() => setisOpened(true)}>Add Todo</button> */}
-            <Modal opened={isOpened} closed={() => setisOpened(false)}>
+            <Modal opened={isOpened} close={() => setisOpened(false)}>
                 <Heading noMargin size="h1" color="white">
                     Add new todo
                 </Heading>

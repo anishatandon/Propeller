@@ -23,5 +23,9 @@ export const TODOS = '/todos';
 // export const SIGN_OUT = '/signout'
 
 
+<<<<<<< HEAD
 // export const SIGN_UP = '/signup';
 >>>>>>> 1e43dc08613ff0e241449d54fc42d9035af2449a
+=======
+// export const SIGN_UP = '/signup';
+>>>>>>> 61685d63f2b9b620190b2cd91b66e75acd048dc6
