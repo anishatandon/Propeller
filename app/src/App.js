@@ -7,10 +7,11 @@ import HomePage from './components/Home/index';
 import Signin from './components/Auth/SignIn/SignIn';
 import SignUp from './components/Auth/SignUp/SignUp';
 import Signout from './components/Auth/SignOut/SignOut';
-import TodoList from './components/Todos/Todos';
+import TodoList from './components/AddTask/TodoList';
+// import TodoList from './components/Todos/Todos';
 import Calendar from './components/Calendar/index';
 import FriendsPage from './components/Friends/index';
-import AccountPage from './components/Account/index';
+import Account from './components/Auth/Account/Account';
 import VerifyEmail from './components/Auth/VerifyEmail/VerifyEmail';
 import RecoverPassword from './components/Auth/RecoverPassword/RecoverPassword';
 
@@ -32,7 +33,7 @@ const App = ({ signedIn, emailVerified }) => {
         <Route exact path="/todos" component={TodoList} />
         <Route exact path="/calendar" component={Calendar} />
         <Route exact path="/friends" component={FriendsPage} />
-        <Route exact path="/settings" component={AccountPage} />
+        <Route exact path="/account" component={Account} />
         <Route exact path="/signout" component={Signout} />
         <Redirect to="/" />
       </Switch>

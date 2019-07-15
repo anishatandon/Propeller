@@ -94,3 +94,65 @@ export const recoverPassword = data => async (
         dispatch({ type: actions.RECOVERY_FAIL, payload: err.message });
     }
 };
+
+// Edit account
+export const editAccount = data => async (
+    dispatch,
+    getState,
+    {getFirebase, getFirestore}
+) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+    const user = firebase.auth().currentUser;
+    const{uid: userId, email: userEmail} = getState().firebase.auth;
+    dispatch({ type: actions.ACCOUNT_EDIT_START})
+    try{
+        //edit the user account
+        if(data.email !== userEmail) {
+            await user.updateEmail(data.email)
+        }
+
+        await firestore
+            .collection('users')
+            .doc(userId)
+            .set({
+                firstName: data.firstName,
+                lastName: data.lastName
+            });
+
+            if (data.password.length > 0) {
+                await user.updatePassword(data.password);
+            }
+
+        dispatch({ type: actions.ACCOUNT_EDIT_SUCCESS})
+    } catch(err) {
+        dispatch({type: actions.ACCOUNT_EDIT_FAIL, payloiad: err.message})
+    }
+}
+
+// Delete user
+export const deleteUser = () => async (
+    dispatch,
+    getState,
+    { getFirebase, getFirestore }
+) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+    const user = firebase.auth().currentUser;
+    const userId = getState().firebase.auth.uid;
+    dispatch({ type: actions.DELETE_START });
+    try {
+        await firestore
+            .collection('users')
+            .doc(userId)
+            .delete()
+        await user.delete();
+
+        await firestore
+            .collection('users')
+            .doc(userId)
+            .delete()
+    } catch (err) {
+        dispatch({ type: actions.DELETE_FAIL, payload: err.message })
+    }
+}
