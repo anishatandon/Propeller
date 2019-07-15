@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Heading from '../UI/Heading';
 import { Container } from '../../hoc/layout/elements';
 import moment from 'moment';
-import AddTaskButton from '../AddTaskButton';
 // import { Link } from 'react-router-dom';
 // import * as ROUTES from '../../constants/routes';
 import Todos from '../Todos/Todos';
@@ -13,7 +12,7 @@ import Todos from '../Todos/Todos';
 
 const Wrapper = styled.div`
     width: 100%;
-    aligh-self: flex-start;
+    align-self: flex-start;
     height: 100%;
     min-height: calc(100vh - 6rem);
     background-color: var(--color-mainLight);

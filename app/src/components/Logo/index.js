@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const LogoWrapper = styled.div`
   color: var(--color-white);
-  height: 100%;
+  height: /*100%*/ ${size => size};
   display: flex;
   align-items: center;
   font-weight: 700;
@@ -11,9 +11,9 @@ const LogoWrapper = styled.div`
   padding: 1rem;
 `;
 
-const Logo = () => {
+const Logo = ({size}) => {
   return (
-    <LogoWrapper>
+    <LogoWrapper size={size}>
       <img src="https://image.flaticon.com/icons/svg/267/267711.svg" alt="Propeller--Propel to Excel" />
     </LogoWrapper>
   )
