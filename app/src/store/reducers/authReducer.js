@@ -21,6 +21,14 @@ const initialState = {
     },
 };
 
+// const authStart = (action) => {
+//     return { ...state, loading: true }
+// }
+
+// const authEnd = state => {
+//     { ...state, loading: false }
+// }
+
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case actions.CLEAN_UP:

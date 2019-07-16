@@ -6,7 +6,8 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 import Heading from '../UI/Heading';
 import { Container } from '../../hoc/layout/elements';
-import AddTodo from './AddTodo.js';
+import InputTodo from './InputTodo';
+import Button from '../UI/Button'
 import Loader from '../../components/UI/Loader';
 import Todo from './Todo';
 
@@ -37,17 +38,38 @@ const Content = styled.div`
 `;
 
 const Todos = ({todos, requesting, requested, userId}) => {
+    const [isAdding, setIsAdding] = useState(false)
     let content;
-    
     if (!todos) {
-      console.log('ugh')
-      content = (<Content><Loader isWhite ></Loader></Content>);
-    } else if (!todos[userId] && requested[`todos/${userId}`]) {
-      console.log('stupid')
-      content = (<Content><Heading color='white'size='h2'>You have no todos!</Heading></Content>);
+        content = (
+            <Content>
+                <Loader isWhite />
+            </Content>
+        );
+    } else if (
+        !todos[userId] && requested[`todos/${userId}`] ||
+        todos[userId].todos.length === 0
+    ) {
+        content = (
+            <Content>
+                <Heading color='white'size='h2'>
+                    You have no todos!
+                </Heading>
+            </Content>
+        );
     } else{
-      console.log('why')
-      content = (<Content>{todos[userId].todos.map(todo => (<Todo key={todo.id} todo={todo}></Todo>))}</Content>);
+        content = (
+            <Content>
+                {todos[userId].todos
+                    //making shallow copy
+                    .slice(0)
+                    //reverse ordering
+                    .reverse()
+                    .map(todo => (
+                    <Todo key={todo.id} todo={todo} />
+                ))}
+            </Content>
+        );
     }
   
     return (
@@ -55,7 +77,7 @@ const Todos = ({todos, requesting, requested, userId}) => {
         <Container>
           <InnerWrapper>
             {content}
-            <AddTodo></AddTodo>
+            <InputTodo></InputTodo>
           </InnerWrapper>
         </Container>
       </Wrapper>

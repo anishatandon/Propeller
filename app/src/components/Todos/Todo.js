@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+
+import DeleteTodo from './DeleteTodo'
+import InputTodo from './InputTodo'
 
 const Wrapper = styled.div`
     width: 100%;
+    position: relative;
     padding: 4rem 3rem;
     background-color: var(--color-mainDark);
     box-shadow: 0rem .5rem 3.5rem var(--shadow);
@@ -14,10 +18,57 @@ const Wrapper = styled.div`
     color: var(--color-mainLight);
 `;
 
-const Todo = ({todo}) => {
+const Controls = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+`;
+
+const editStyles = {
+    color: 'var(--color-main)',
+    margin: '0 .5rem',
+    cursor: 'pointer',
+};
+  
+const deleteStyles = {
+    color: 'var(--color-errorRed)',
+    margin: '0 .5rem',
+    cursor: 'pointer',
+};
+
+
+const Todo = ({ todo }) => {
+    const [isDeleting, setisDeleting] = useState(false)
+    const [isEditing, setIsEditing] = useState(false)
+    console.log(isDeleting)
+
     return (
         <Wrapper>
             {todo.todo}
+            <Controls>
+                {/*<img src="https://image.flaticon.com/icons/svg/61/61456.svg" alt="Edit" height="30" width="30" />
+                <img src="https://image.flaticon.com/icons/svg/1214/1214594.svg" alt="Delete" height="30" width="30" />*/}
+                <i className="far fa-edit" style={editStyles} onClick={() => setIsEditing(true)} />
+                <i
+                    className="far fa-trash-alt"
+                    style={deleteStyles}
+                    onClick={() => setisDeleting(true)}
+                />
+                <DeleteTodo
+                    todo={todo}
+                    show={isDeleting}
+                    close={() => setisDeleting(false)}
+                />
+                <InputTodo
+                    editTodo={todo}
+                    opened={isEditing}
+                    close={() => setIsEditing(false)}
+                />
+            </Controls>
         </Wrapper>
     )
 }
