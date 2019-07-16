@@ -8,9 +8,10 @@ import SideDrawer from '../../components/Navigation/SideDrawer';
 const MainWrapper = styled.main`
   width: 100%;
   min-height: calc(100vh - 6rem);
-  margin-top: 6rem;
+  margin-top: 8rem;
+  margin-bottom: 2rem;
   display: flex;
-  align-items: center,
+  align-items: center;
   justify-content: center;
 `;
 

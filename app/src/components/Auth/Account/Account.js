@@ -97,47 +97,53 @@ const Account = ({ firebase, editAccount, loading, error, loadingDelete, errorDe
             >
                 {({ isSubmitting, isValid }) => (
                     <FormWrapper>
-                        <Heading noMargin size="h1" color="white">
+                        <Heading noMargin size="h1" color="gray">
                             Edit your account
                         </Heading>
-                        <Heading bold size="h4" color="white">
-                            Here you can edit your account information
+                        <Heading bold size="h4" color="gray">
+                            Change your account information and hit save
                         </Heading>
                         <StyledForm>
+                            <Heading noMargin size="h4" color="gray">First Name</Heading>
                             <Field 
                                 type="text"
                                 name="firstName"
                                 placeholder="First name..."
                                 component={Input}
                             />
+                            <Heading noMargin size="h4" color="gray">Last Name</Heading>
                             <Field 
                                 type="text"
                                 name="lastName"
                                 placeholder="Last name..."
                                 component={Input}
                             />
+                            <Heading noMargin size="h4" color="gray">Username</Heading>
                             <Field 
                                 type="text"
                                 name="username"
                                 placeholder="Username..."
                                 component={Input}
                             />
+                            <Heading noMargin size="h4" color="gray">Email Address</Heading>
                             <Field 
                                 type="email"
                                 name="email"
                                 placeholder="Email..."
                                 component={Input}
                             />
+                            <Heading noMargin size="h4" color="gray">New Password</Heading>
                             <Field
                                 type="password"
                                 name="password"
-                                placeholder="Password..."
+                                // placeholder="Password..."
                                 component={Input}
                             />
+                            <Heading noMargin size="h4" color="gray">Confirm New Password</Heading>
                             <Field
                                 type="password"
                                 name="confirmPassword"
-                                placeholder="Confirm your password..."
+                                // placeholder="Confirm your password..."
                                 component={Input}
                             />
                             <Button
@@ -165,10 +171,10 @@ const Account = ({ firebase, editAccount, loading, error, loadingDelete, errorDe
                 )}
             </Formik>
             <Modal opened={modalOpened} close={() => setModalOpened(false)}>
-                <Heading noMargin size="h1" color="white">
+                <Heading noMargin size="h1" color="gray">
                     Delete your account
                 </Heading>
-                <Heading bold size="h4" color="white">
+                <Heading bold size="h4" color="gray">
                     Do you really want to delete your account?
                 </Heading>
                 <ButtonsWrapper>
@@ -181,7 +187,7 @@ const Account = ({ firebase, editAccount, loading, error, loadingDelete, errorDe
                     >
                         Delete
                     </Button>
-                    <Button color="main" contain onClick={() => setModalOpened(false)}>
+                    <Button color="mainDarker" contain onClick={() => setModalOpened(false)}>
                         Cancel
                     </Button>
                 </ButtonsWrapper>
