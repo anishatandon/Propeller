@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const LogoWrapper = styled.div`
   color: var(--color-white);
-  height: /*100%*/ ${size => size};
+  height: 100% /*${size => size}*/;
   display: flex;
   align-items: center;
   font-weight: 700;
