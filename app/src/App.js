@@ -30,7 +30,7 @@ const App = ({ signedIn, emailVerified }) => {
     routes = (
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/todos" component={TodoList} />
+        {/* <Route exact path="/todos" component={TodoList} /> */}
         <Route exact path="/calendar" component={Calendar} />
         <Route exact path="/friends" component={FriendsPage} />
         <Route exact path="/account" component={Account} />

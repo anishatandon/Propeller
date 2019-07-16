@@ -3,12 +3,12 @@ import styled, { css } from 'styled-components';
 
 const baseStyle = css`
   color: ${({ color }) =>
-    color === 'white' ? 'var(--color-white)' : 'var(--color-main)'};
+    color === 'gray' ? '#363636' : 'var(--color-main)'};
   font-weight: ${({ bold }) => (bold ? '700' : '300')};
   margin-top: 0;
   letter-spacing: 1px;
   margin-bottom: ${({ noMargin }) => (noMargin ? '0rem' : '5rem')};
-`;
+  `;
 
 const Heading1 = styled.h1`
   font-size: 2.5rem;
