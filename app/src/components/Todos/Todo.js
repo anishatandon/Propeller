@@ -22,14 +22,14 @@ const Controls = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    width:100%;
+    width: 100%;
     display: flex;
     padding: 1rem;
     justify-content: center;
 `;
 
 const editStyles = {
-    color: 'var(--color-main)',
+    color: 'var(--color-mainLight)',
     margin: '0 .5rem',
     cursor: 'pointer',
 };
@@ -50,9 +50,11 @@ const Todo = ({ todo }) => {
         <Wrapper>
             {todo.todo}
             <Controls>
-                {/*<img src="https://image.flaticon.com/icons/svg/61/61456.svg" alt="Edit" height="30" width="30" />
-                <img src="https://image.flaticon.com/icons/svg/1214/1214594.svg" alt="Delete" height="30" width="30" />*/}
-                <i className="far fa-edit" style={editStyles} onClick={() => setIsEditing(true)} />
+                <i
+                    className="far fa-edit"
+                    style={editStyles}
+                    onClick={() => setIsEditing(true)}
+                />
                 <i
                     className="far fa-trash-alt"
                     style={deleteStyles}
