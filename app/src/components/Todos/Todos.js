@@ -22,7 +22,8 @@ const InnerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem 4rem;
+    padding: 0rem 4rem;
+    background-color: var(--color-mainLight);
 `;
 
 const Content = styled.div`
@@ -32,6 +33,7 @@ const Content = styled.div`
   max-width: 60rem;
   flex-direction: column;
   margin-top: 2rem;
+  background-color: var(--color-mainLight);
 `;
 
 const Todos = ({todos, requesting, requested, userId}) => {
@@ -52,10 +54,8 @@ const Todos = ({todos, requesting, requested, userId}) => {
       <Wrapper>
         <Container>
           <InnerWrapper>
-            <Heading noMargin size='h1' color='white'>Your Todos</Heading>
-            <Heading bold size='h4' color='white'>All you have to do for now...</Heading>
-            <AddTodo></AddTodo>
             {content}
+            <AddTodo></AddTodo>
           </InnerWrapper>
         </Container>
       </Wrapper>

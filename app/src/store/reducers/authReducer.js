@@ -1,5 +1,4 @@
 import * as actions from '../actions/actionTypes';
-import { stat } from 'fs';
 
 const initialState = {
     error: null,

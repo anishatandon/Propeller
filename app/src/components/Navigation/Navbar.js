@@ -5,9 +5,10 @@ import Logo from '../Logo/index';
 import { Container } from '../../hoc/layout/elements';
 import NavItems from '../Navigation/NavItems';
 
+
 const FixedWrapper = styled.header`
   position: fixed;
-  background-color: var(--color-mainDark);
+  background-color: var(--color-mainLight);
   padding: 0rem 2rem;
   top: 0;
   left: 0;
@@ -29,7 +30,7 @@ const Navbar = ({ signedIn }) => {
     <FixedWrapper>
       <Container>
         <Wrapper>
-          <Logo />
+          <Logo /*onClick = {true}*//>
           <NavItems signedIn={signedIn} />
         </Wrapper>
       </Container>

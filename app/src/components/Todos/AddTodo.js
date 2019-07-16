@@ -24,9 +24,9 @@ const ButtonsWrapper = styled.div`
 const MessageWrapper = styled.div`
     position: absolute;
     bottom: 0rem;
-    width: 100%
+    width: 100%;
     padding: 0 3rem; 
-`
+`;
 const TodoSchema = Yup.object().shape({
     todo: Yup.string()
       .required('The todo is required.'),
@@ -36,7 +36,7 @@ const AddTodo = ({ addTodo, loading, error }) => {
     const [isOpened, setisOpened] = useState(false)
     return (
         <div>
-            <Button color="main" contain onClick={() => setisOpened(true)}>
+            <Button color="mainDark" contain onClick={() => setisOpened(true)}>
                 Add Todo
             </Button>
             {/* <button onClick={() => setisOpened(true)}>Add Todo</button> */}
@@ -79,7 +79,7 @@ const AddTodo = ({ addTodo, loading, error }) => {
                                 >
                                     Add Todo
                                 </Button>
-                                <Button color="main" contain onClick={() => setisOpened(false)}>
+                                <Button color="mainLight" contain onClick={() => setisOpened(false)}>
                                     Cancel
                                 </Button>
                             </ButtonsWrapper>

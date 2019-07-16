@@ -2,7 +2,7 @@
     width: 1500px;
     height: 750px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 12% 10% 13% 13% 13% 13% 13% 13%;
+    grid-template-rows: 15% 10% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
     display: grid;
     text-align: left;
     border: solid navy;

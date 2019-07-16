@@ -6,12 +6,12 @@ import * as Yup from 'yup'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { FormWrapper, StyledForm } from '../../../hoc/layout/elements'
-import Heading from '../../UI/Heading'
-import Input from '../../UI/Input'
-import Message from '../../UI/Message'
-import Button from '../../UI/Button'
-import * as actions from '../../../store/actions'
+import { FormWrapper, StyledForm } from '../../hoc/layout/elements'
+import Heading from '../UI/Heading'
+import Input from '../UI/Input'
+import Message from '../UI/Message'
+import Button from '../UI/Button'
+import * as actions from '../../store/actions'
 
 const MessageWrapper = styled.div`
     position: absolute;

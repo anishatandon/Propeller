@@ -16,19 +16,20 @@ const StyledInput = styled.input`
   padding: 1.2rem 2rem;
   width: 100%;
   background-color: var(--color-mainLight);
-  color: var(--color-text);
+  color: var(--color-mainDark);
   font-weight: 500;
   font-size: 1.2rem;
   border-radius: 2rem;
   border: none;
+  cursor: pointer;
   &::placeholder {
-    color: var(--color-text);
+    color: var(--color-mainDark);
   }
 `;
 
 const Error = styled.div`
   color: var(--color-errorRed);
-  visibility: ${({ show }) => (show ? 'visibile' : 'hidden')};
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
   opacity: ${({ show }) => (show ? '1' : '0')};
   transform: translateY(${({ show }) => (show ? '20px' : '10px')});
   transition: all 0.1s;

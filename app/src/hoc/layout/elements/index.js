@@ -6,12 +6,13 @@ export const Container = styled.div`
   max-width: 140rem;
   margin: 0 auto;
   height: 100%;
+  background-color: var(--color-mainLight);
 `;
 
 export const FormWrapper = styled.div`
   width: 100%;
   max-width: 60rem;
-  margin: 0 auto;
+  margin: 2rem auto;
   border-radius: 0.7rem;
   padding: 5rem 8rem;
   display: flex;

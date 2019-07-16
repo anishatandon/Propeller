@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from '../Logo'
 // import { withAuthorization } from '../Session';
 
 import Heading from '../UI/Heading';
@@ -13,9 +14,10 @@ import Todos from '../Todos/Todos';
 const Wrapper = styled.div`
     width: 100%;
     align-self: flex-start;
+    display: flex;
     height: 100%;
     min-height: calc(100vh - 6rem);
-    background-color: var(--color-mainLighter);
+    background-color: var(--color-mainLight);
 `;
 
 const InnerWrapper = styled.div`
@@ -23,6 +25,7 @@ const InnerWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 3rem 4rem;
+    background-color: var(--color-mainLight);
 `;
 
 const HomePage = () => {
@@ -30,9 +33,8 @@ const HomePage = () => {
       <Wrapper>
           <Container>
               <InnerWrapper>
-                <Heading noMargin size="h1" color="white">Home</Heading>
-                <img src="https://image.flaticon.com/icons/svg/267/267711.svg" alt="Home" />
-                <Heading bold size="h2" color="white">
+                <Logo size='small'/>
+                <Heading bold noMargin size="h1" color="mainDark">
                   Tasks for {moment().format('dddd, LL')}
                 </Heading>
                 <Todos />

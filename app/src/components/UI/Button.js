@@ -10,13 +10,14 @@ const StyledButton = styled.button`
   color: var(--color-white);
   font-weight: 700;
   box-shadow: 0rem 0.5rem 3.5rem var(--shadow);
+  color: ${({ color }) => (color==='mainDark' ? 'var(--color-mainLight)' : 'var(--color-mainDark)')};
   background-color: ${({ color }) => {
     if (color === 'red') {
       return 'var(--color-errorRed)'
-    } else if (color === 'main') {
-      return 'var(--color-main)';
+    } else if (color === 'mainDark') {
+      return 'var(--color-mainDark)'
     } else {
-      return 'var(--color-mainDarker)'
+      return 'var(--color-mainLight)'
     }
   }};
   margin: 1.5rem 0 2rem 0;
@@ -30,7 +31,8 @@ const StyledButton = styled.button`
   }
   &:disabled {
     cursor: not-allowed;
-    background-color: #8496a3;
+    background-color: gray;
+    color: white;
   }
 `;
 

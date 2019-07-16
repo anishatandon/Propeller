@@ -4,14 +4,14 @@ import { Formik, Field } from 'formik'
 import styled from 'styled-components'
 import * as Yup from 'yup'
 
-import Message from '../../../components/UI/Message'
-import { FormWrapper, StyledForm } from '../../../hoc/layout/elements'
-import Heading from '../../../components/UI/Heading'
-import Input from '../../../components/UI/Input'
-import Button from '../../../components/UI/Button'
-import Modal from '../../../components/UI/Modal'
+import Message from '../UI/Message'
+import { FormWrapper, StyledForm } from '../../hoc/layout/elements'
+import Heading from '../UI/Heading'
+import Input from '../UI/Input'
+import Button from '../UI/Button'
+import Modal from '../UI/Modal'
 
-import * as actions from '../../../store/actions'
+import * as actions from '../../store/actions'
 
 const MessageWrapper = styled.div`
     position: absolute;
@@ -29,7 +29,7 @@ const DeleteWrapper = styled.div`
     transition: all .2s;
 
     &:hover {
-        transform: traslateY(-3px);
+        transform: translateY(-3px);
     }
 
     &:active {
@@ -97,49 +97,49 @@ const Account = ({ firebase, editAccount, loading, error, loadingDelete, errorDe
             >
                 {({ isSubmitting, isValid }) => (
                     <FormWrapper>
-                        <Heading noMargin size="h1" color="gray">
+                        <Heading noMargin size="h1" /*color="gray"*/>
                             Edit your account
                         </Heading>
-                        <Heading bold size="h4" color="gray">
+                        <Heading bold size="h4" /*color="gray"*/>
                             Change your account information and hit save
                         </Heading>
                         <StyledForm>
-                            <Heading noMargin size="h4" color="gray">First Name</Heading>
+                            <Heading noMargin size="h4" /*color="gray"*/>First Name</Heading>
                             <Field 
                                 type="text"
                                 name="firstName"
                                 placeholder="First name..."
                                 component={Input}
                             />
-                            <Heading noMargin size="h4" color="gray">Last Name</Heading>
+                            <Heading noMargin size="h4" /*color="gray"*/>Last Name</Heading>
                             <Field 
                                 type="text"
                                 name="lastName"
                                 placeholder="Last name..."
                                 component={Input}
                             />
-                            <Heading noMargin size="h4" color="gray">Username</Heading>
+                            <Heading noMargin size="h4" /*color="gray"*/>Username</Heading>
                             <Field 
                                 type="text"
                                 name="username"
                                 placeholder="Username..."
                                 component={Input}
                             />
-                            <Heading noMargin size="h4" color="gray">Email Address</Heading>
+                            <Heading noMargin size="h4" /*color="gray"*/>Email Address</Heading>
                             <Field 
                                 type="email"
                                 name="email"
                                 placeholder="Email..."
                                 component={Input}
                             />
-                            <Heading noMargin size="h4" color="gray">New Password</Heading>
+                            <Heading noMargin size="h4" /*color="gray"*/>New Password</Heading>
                             <Field
                                 type="password"
                                 name="password"
                                 // placeholder="Password..."
                                 component={Input}
                             />
-                            <Heading noMargin size="h4" color="gray">Confirm New Password</Heading>
+                            <Heading noMargin size="h4" /*color="gray"*/>Confirm New Password</Heading>
                             <Field
                                 type="password"
                                 name="confirmPassword"
@@ -171,10 +171,10 @@ const Account = ({ firebase, editAccount, loading, error, loadingDelete, errorDe
                 )}
             </Formik>
             <Modal opened={modalOpened} close={() => setModalOpened(false)}>
-                <Heading noMargin size="h1" color="gray">
+                <Heading noMargin size="h1" /*color="gray"*/>
                     Delete your account
                 </Heading>
-                <Heading bold size="h4" color="gray">
+                <Heading bold size="h4" /*color="gray"*/>
                     Do you really want to delete your account?
                 </Heading>
                 <ButtonsWrapper>

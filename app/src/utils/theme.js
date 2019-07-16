@@ -1,13 +1,13 @@
 const theme = {
   colors: {
-    main: '#c2e6ff',
-    mainDark: '#b8e1ff',
-    mainDarker: '#57a9e6',
-    mainLight: '#cfebff',
-    mainLighter: '#edf8ff',
-    textColor: '#333',
-    whiteColor: '#fff',
-    errorRed: '#ff5757',
+    main: '#2d527c',
+    mainDark: 'rgba(45,82,124,1)',
+    mainDarker: 'rgba(45,82,124,1)',
+    mainLight: 'rgba(206,232,250,1)',
+    mainLighter: 'rgba(206,232,250,1)',
+    textColor: 'black',
+    whiteColor: 'white',
+    errorRed: 'red',
     shadow: 'rgba(0,0,0,.2)',
   },
 
