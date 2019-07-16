@@ -10,7 +10,7 @@ const MainWrapper = styled.main`
   min-height: calc(100vh - 6rem);
   margin-top: 6rem;
   display: flex;
-  align-items: center,
+  align-items: center;
   justify-content: center;
 `;
 
