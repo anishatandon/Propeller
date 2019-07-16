@@ -16,7 +16,7 @@ const StyledButton = styled.button`
     } else if (color === 'main') {
       return 'var(--color-main)';
     } else {
-      return 'var(--color-mainLighter)'
+      return 'var(--color-mainDarker)'
     }
   }};
   margin: 1.5rem 0 2rem 0;
@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   }
   &:disabled {
     cursor: not-allowed;
-    background-color: #333;
+    background-color: #8496a3;
   }
 `;
 

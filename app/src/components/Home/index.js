@@ -15,19 +15,18 @@ const Wrapper = styled.div`
     align-self: flex-start;
     height: 100%;
     min-height: calc(100vh - 6rem);
-    background-color: var(--color-mainLight);
+    background-color: var(--color-mainLighter);
 `;
 
 const InnerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem 4rem;
+    padding: 3rem 4rem;
 `;
 
 const HomePage = () => {
   return(
-    <>
       <Wrapper>
           <Container>
               <InnerWrapper>
@@ -39,8 +38,7 @@ const HomePage = () => {
                 <Todos />
               </InnerWrapper>
           </Container>
-      </Wrapper> 
-    </>
+      </Wrapper>
     )
 };
 
