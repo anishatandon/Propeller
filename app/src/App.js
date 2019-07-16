@@ -7,8 +7,6 @@ import HomePage from './components/Home/index';
 import Signin from './components/Auth/SignIn/SignIn';
 import SignUp from './components/Auth/SignUp/SignUp';
 import Signout from './components/Auth/SignOut/SignOut';
-import TodoList from './components/AddTask/TodoList';
-// import TodoList from './components/Todos/Todos';
 import Calendar from './components/Calendar/index';
 import FriendsPage from './components/Friends/index';
 import Account from './components/Auth/Account/Account';
@@ -30,7 +28,6 @@ const App = ({ signedIn, emailVerified }) => {
     routes = (
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/todos" component={TodoList} />
         <Route exact path="/calendar" component={Calendar} />
         <Route exact path="/friends" component={FriendsPage} />
         <Route exact path="/account" component={Account} />

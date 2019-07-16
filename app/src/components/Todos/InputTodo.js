@@ -12,7 +12,7 @@ import Input from '../UI/Input';
 import Message from '../UI/Message';
 import {StyledForm} from '../../hoc/layout/elements';
 
-import * as actions from'../../store/actions/';
+import * as actions from'../../store/actions';
 
 const ButtonsWrapper = styled.div`
     display: flex;
@@ -26,42 +26,54 @@ const MessageWrapper = styled.div`
     bottom: 0rem;
     width: 100%
     padding: 0 3rem; 
-`
+`;
+
 const TodoSchema = Yup.object().shape({
     todo: Yup.string()
       .required('The todo is required.'),
 });
 
-const AddTodo = ({ addTodo, loading, error }) => {
-    const [isOpened, setisOpened] = useState(false)
+const InputTodo = ({
+    editTodo,
+    close,
+    opened,
+    addTodo,
+    loading,
+    error,
+    editTodoAction,
+}) => {
+    const loadingText = editTodo ? 'Editing...' : 'Adding...'
     return (
-        <div>
-            <Button color="main" contain onClick={() => setisOpened(true)}>
+        <>
+            {/* <Button color="main" contain onClick={() => setisOpened(true)}>
                 Add Todo
-            </Button>
+            </Button> */}
             {/* <button onClick={() => setisOpened(true)}>Add Todo</button> */}
-            <Modal opened={isOpened} close={() => setisOpened(false)}>
+            <Modal opened={opened} close={close}>
                 <Heading noMargin size="h1" color="white">
-                    Add new todo
+                    {editTodo? 'Edit your todo' : 'Add your new todo'}
                 </Heading>
                 <Heading bold size="h4" color="white">
-                    Yeay more things to do for you;)
+                    {editTodo? 'Edit your todo and click edit' : 'Yay more things to do for you ;)'}
                 </Heading>
                     <Formik
                         initialValues={{
-                        todo: '',
+                            todo: editTodo ? editTodo.todo : '',
                     }}
                     validationSchema={TodoSchema}
-                    onSubmit={async (values, { setSubmitting }) => {
-                        // send todo
-                        const res = await addTodo(values);
+                    onSubmit={async (values, { setSubmitting, resetForm }) => {
+                        // send our todo
+                        const res = editTodo
+                            ? await editTodoAction(editTodo.id, values)
+                            : await addTodo(values);
                         if (res) {
-                            setisOpened(false)
+                            close();
                         }
-                        setSubmitting(false)
+                        // setSubmitting(false)
+                        resetForm();
                     }}
                     >
-                    {({ isSubmitting, isValid }) => (
+                    {({ isSubmitting, isValid, resetForm }) => (
                         <StyledForm>
                             <Field
                             type="text"
@@ -75,11 +87,19 @@ const AddTodo = ({ addTodo, loading, error }) => {
                                     color="main"
                                     type="submit"
                                     disabled={!isValid || isSubmitting}
-                                    loading={loading ? 'Adding...' : null}
+                                    loading={loading ? loadingText : null}
                                 >
-                                    Add Todo
+                                    {editTodo ? 'Edit todo' : 'Add todo'}
                                 </Button>
-                                <Button color="main" contain onClick={() => setisOpened(false)}>
+                                <Button
+                                    type="button"
+                                    color="main"
+                                    contain
+                                    onClick={() => {
+                                        close();
+                                        resetForm();
+                                    }}
+                                >
                                     Cancel
                                 </Button>
                             </ButtonsWrapper>
@@ -92,17 +112,18 @@ const AddTodo = ({ addTodo, loading, error }) => {
                     )}
                     </Formik>
             </Modal>
-        </div>
+        </>
     )
 }
 
 const mapStateToProps = ({todos}) => ({
     loading: todos.loading,
-    error: todos.error
+    error: todos.error,
 })
 
 const mapDispatchToProps = {
-    addTodo: actions.addTodo
+    addTodo: actions.addTodo,
+    editTodoAction: actions.editTodo
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);
+export default connect(mapStateToProps, mapDispatchToProps)(InputTodo);
