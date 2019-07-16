@@ -50,9 +50,11 @@ const Todo = ({ todo }) => {
         <Wrapper>
             {todo.todo}
             <Controls>
-                {/* <img src="https://image.flaticon.com/icons/svg/61/61456.svg" alt="Edit" height="30" width="30" />
-                <img src="https://image.flaticon.com/icons/svg/1214/1214594.svg" alt="Delete" height="30" width="30" /> */}
-                <i className="far fa-edit" style={editStyles} onClick={() => setIsEditing(true)} />
+                <i
+                    className="far fa-edit"
+                    style={editStyles}
+                    onClick={() => setIsEditing(true)}
+                />
                 <i
                     className="far fa-trash-alt"
                     style={deleteStyles}
