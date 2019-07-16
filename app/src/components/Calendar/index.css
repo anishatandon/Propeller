@@ -5,16 +5,22 @@
     grid-template-rows: 12% 10% 13% 13% 13% 13% 13% 13%;
     display: grid;
     text-align: left;
-    border: solid purple;
+    border: solid navy;
     margin: 20px 20px 20px 20px;
     padding: 20px 10px 20px 10px;
     position: relative;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 .weekday {
     font-weight: bold;
     font-size: 24px;
     text-align: center;
     padding: 10px 0px 10px 0px;
+    width: 100%;
+    height: 100%;
     
 }
 .month {
@@ -22,12 +28,11 @@
     font-weight: 900;
     font-size: 72px;
     font-family: Tahoma;
-    background-color: purple;
+    background-color: navy;
     color: white;
     text-align: center;
     width: 100%;
     height: 100%;
-    
 }
 .arrowLeft {
     grid-column: 1;
@@ -35,7 +40,7 @@
     font-size: 72px;
     font-family: Tahoma;
     text-align: center;
-    background-color: purple;
+    background-color: navy;
     color: white;
     width: 100%;
     height: 100%;
@@ -46,7 +51,7 @@
     font-size: 72px;
     font-family: Tahoma;
     text-align: center;
-    background-color: purple;
+    background-color: navy;
     color: white;
     width: 100%;
     height: 100%;
@@ -60,7 +65,7 @@
     height: 100%;
     box-sizing: border-box;
     text-align: center;
-    background-color: purple;
+    background-color: navy;
     color: white;
     opacity: 1;
     width: 100%;
@@ -70,25 +75,29 @@ span {
     font-family: Tahoma;
     font-size: 36px;
     text-align: left;
-    background-color: rgba(128,0,128,0.5);
+    background-color: rgba(0,0,128,0.5);
+    width: 100%;
+    height: 100%;
 }
 .beforeafter {
-    border: solid purple thin;
+    border: solid navy thin;
 }
 .myMonth {
-    background-color: rgba(128,0,128,0.25);
-    border: solid purple thin;
+    background-color: rgba(0,0,128,0.25);
+    border: solid navy thin;
+    width: 100%;
+    height: 100%;
 }
 .today {
-    background-color: rgba(128,0,128,0.75);
+    background-color: rgba(0,0,255,0.75);
     color: white;
-    border: solid purple thin;
+    border: solid navy thin;
     font-size: 48px;
 
 }
 .clickedDay {
     background-color: white;
-    color: purple;
-    border: solid purple thin;
+    color: navy;
+    border: solid navy thin;
     font-size: 48px;
 }

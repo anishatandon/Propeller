@@ -12,7 +12,7 @@ import Todos from '../Todos/Todos';
 
 const Wrapper = styled.div`
     width: 100%;
-    aligh-self: flex-start;
+    align-self: flex-start;
     height: 100%;
     min-height: calc(100vh - 6rem);
     background-color: var(--color-mainLight);

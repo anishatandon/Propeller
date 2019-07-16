@@ -7,7 +7,7 @@ import HomePage from './components/Home/index';
 import Signin from './components/Auth/SignIn/SignIn';
 import SignUp from './components/Auth/SignUp/SignUp';
 import Signout from './components/Auth/SignOut/SignOut';
-import TodoList from './components/AddTask/TodoList';
+import TodoList from './components/Addtask/TodoList';
 // import TodoList from './components/Todos/Todos';
 import Calendar from './components/Calendar/index';
 import FriendsPage from './components/Friends/index';
