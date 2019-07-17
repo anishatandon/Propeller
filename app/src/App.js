@@ -8,6 +8,7 @@ import Signin from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 import Signout from './components/Auth/SignOut';
 import Calendar from './components/Calendar/index';
+// import Friends from './components/Friends/Friends';
 import FriendsPage from './components/Friends/index';
 import Account from './components/Auth/Account';
 import VerifyEmail from './components/Auth/VerifyEmail';
@@ -29,6 +30,7 @@ const App = ({ signedIn, emailVerified }) => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/calendar" component={Calendar} />
+        {/* <Route exact path="/friends" component={Friends} /> */}
         <Route exact path="/friends" component={FriendsPage} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/signout" component={Signout} />
