@@ -42,7 +42,7 @@ const AddFriend = ({
     const [isOpened, setisOpened] = useState(false)
     return (
         <>
-            <Button color="main" contain onClick={() => setisOpened(true)}>
+            <Button color="mainDark" contain onClick={() => setisOpened(true)}>
                 Add Friend
             </Button>
             <Modal opened={isOpened} close={() => setisOpened(false)}>
@@ -50,7 +50,7 @@ const AddFriend = ({
                     Send friend request
                 </Heading>
                 <Heading bold size="h4" color="white">
-                    Type in freind's username and send friend request
+                    Type in friends's email and send friend request
                 </Heading>
                     <Formik
                         initialValues={{
@@ -72,7 +72,7 @@ const AddFriend = ({
                             <Field
                             type="text"
                             name="friend"
-                            placeholder="Add a friend by entering their username"
+                            placeholder="Add a friend by entering their email"
                             component={Input}
                             />
                             <ButtonsWrapper>
