@@ -3,15 +3,16 @@ import { Form } from 'formik';
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 140rem;
+  max-width: 100%;
   margin: 0 auto;
   height: 100%;
+  background-color: var(--color-mainLight);
 `;
 
 export const FormWrapper = styled.div`
   width: 100%;
   max-width: 60rem;
-  margin: 0 auto;
+  margin: 2rem auto;
   border-radius: 0.7rem;
   padding: 5rem 8rem;
   display: flex;
@@ -28,4 +29,5 @@ export const StyledForm = styled(Form)`
   align-items: center;
   width: 100%;
   flex-direction: column;
+  max-width: 100%;
 `;

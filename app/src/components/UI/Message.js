@@ -7,7 +7,7 @@ const P = styled.p`
     color: ${({ error, success }) => {
         if (error) return 'var(--color-errorRed)';
         if (success) return 'green';
-        else return 'var(--color-main)';
+        else return 'var(--color-mainLight)';
     }};
     opacity: ${({show}) => (show ? '1' : '0')};
     transform: translateY(${({ show }) => (show ? '30px' : '0px')});

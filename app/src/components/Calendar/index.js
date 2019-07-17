@@ -105,7 +105,7 @@ export class Calendar extends React.Component {
             this.state.showMonthNav ? <input type="string" defaultValue = {this.monthToday()} className="month" ref={(monthInput)=> {this.monthInput = monthInput}}
             onKeyUp= {(e) => this.onKeyUpMonth(e)} onChange={(e)=>this.onMonthChange(e)} placeholder="Month"/> : 
             <span className="month"
-                onDoubleClick={(e)=>{this.showMonthEditor()}}>
+                onClick={(e)=>{this.showMonthEditor()}}>
                 {this.monthToday()}
             </span>
         )
@@ -115,7 +115,7 @@ export class Calendar extends React.Component {
             this.state.showYearNav ? <input type="number" defaultValue = {this.yearToday()} className="year" ref={(yearInput)=> {this.yearInput = yearInput}}
             onKeyUp= {(e) => this.onKeyUpYear(e)} onChange={(e)=>this.onYearChange(e)} placeholder="Year"/> : 
             <span className="year"
-                onDoubleClick={(e)=>{this.showYearEditor()}}>
+                onClick={(e)=>{this.showYearEditor()}}>
                 {this.yearToday()}
             </span>
         )
@@ -156,8 +156,8 @@ export class Calendar extends React.Component {
         return (
             <div className="grid">
                 <button className="arrowLeft" onClick={(e)=>{this.prevMonth()}}>{"<"}</button>
-                <div className="month"><this.monthNav/></div>
-                <div className="year"><this.yearNav/></div>
+                <this.monthNav/>
+                <this.yearNav/>
                 <button className="arrowRight" onClick={(e)=>{this.nextMonth()}}>{">"}</button>
                 <div className="weekday Sun">{weekdays[0]}</div>
                 <div className="weekday Mon">{weekdays[1]}</div>
@@ -169,7 +169,7 @@ export class Calendar extends React.Component {
                 {monthBeforeDays}
                 {daysInMonth}
                 {monthAfterDays}
-        </div>
+            </div>
         )
     }
 }

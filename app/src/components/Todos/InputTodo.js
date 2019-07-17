@@ -19,15 +19,16 @@ const ButtonsWrapper = styled.div`
     width: 100%;
     margin-bottom: 2rem;
     justify-content: space-around;
+    max-width: 100%;
 `;
 
 const MessageWrapper = styled.div`
     position: absolute;
     bottom: 0rem;
-    width: 100%
+    width: 100%;
     padding: 0 3rem; 
+    max-width: 100%;
 `;
-
 const TodoSchema = Yup.object().shape({
     todo: Yup.string()
       .required('The todo is required.'),
@@ -51,10 +52,10 @@ const InputTodo = ({
             {/* <button onClick={() => setisOpened(true)}>Add Todo</button> */}
             <Modal opened={opened} close={close}>
                 <Heading noMargin size="h1" color="white">
-                    {editTodo? 'Edit your todo' : 'Add your new todo'}
+                    {editTodo? 'Edit your task' : 'Add your new task'}
                 </Heading>
                 <Heading bold size="h4" color="white">
-                    {editTodo? 'Edit your todo and click edit' : 'Yay more things to do for you ;)'}
+                    {editTodo? 'Edit your task and click edit' : 'Now you have additional tasks to complete'}
                 </Heading>
                     <Formik
                         initialValues={{
@@ -81,15 +82,21 @@ const InputTodo = ({
                             placeholder="You have a new task?"
                             component={Input}
                             />
+                            <Field
+                            type="text"
+                            name="repetition"
+                            placeholder="How often will you complete the task?"
+                            component={Input}
+                            />
                             <ButtonsWrapper>
                                 <Button
                                     contain
-                                    color="main"
+                                    color="mainDark"
                                     type="submit"
                                     disabled={!isValid || isSubmitting}
                                     loading={loading ? loadingText : null}
                                 >
-                                    {editTodo ? 'Edit todo' : 'Add todo'}
+                                    {editTodo ? 'Edit task' : 'Add task'}
                                 </Button>
                                 <Button
                                     type="button"

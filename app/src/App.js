@@ -4,15 +4,15 @@ import { connect } from 'react-redux'
 
 import Layout from './hoc/layout/Layout';
 import HomePage from './components/Home/index';
-import Signin from './components/Auth/SignIn/SignIn';
-import SignUp from './components/Auth/SignUp/SignUp';
-import Signout from './components/Auth/SignOut/SignOut';
+import Signin from './components/Auth/SignIn';
+import SignUp from './components/Auth/SignUp';
+import Signout from './components/Auth/SignOut';
 import Calendar from './components/Calendar/index';
 // import Friends from './components/Friends/Friends';
 import FriendsPage from './components/Friends/index';
-import Account from './components/Auth/Account/Account';
-import VerifyEmail from './components/Auth/VerifyEmail/VerifyEmail';
-import RecoverPassword from './components/Auth/RecoverPassword/RecoverPassword';
+import Account from './components/Auth/Account';
+import VerifyEmail from './components/Auth/VerifyEmail';
+import RecoverPassword from './components/Auth/RecoverPassword';
 
 const App = ({ signedIn, emailVerified }) => {
   let routes;

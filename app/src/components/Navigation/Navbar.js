@@ -5,13 +5,15 @@ import Logo from '../Logo/index';
 import { Container } from '../../hoc/layout/elements';
 import NavItems from '../Navigation/NavItems';
 
+
 const FixedWrapper = styled.header`
   position: fixed;
-  background-color: var(--color-mainDark);
+  background-color: var(--color-mainLight);
   padding: 0rem 2rem;
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100%;
   height: 6rem;
   @media ${props => props.theme.mediaQueries.smallest} {
     display: none;
@@ -21,6 +23,7 @@ const FixedWrapper = styled.header`
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
+  max-width: 100%;
   justify-content: space-between;
 `;
 
@@ -29,7 +32,7 @@ const Navbar = ({ signedIn }) => {
     <FixedWrapper>
       <Container>
         <Wrapper>
-          <Logo />
+          <Logo /*onClick = {true}*//>
           <NavItems signedIn={signedIn} />
         </Wrapper>
       </Container>

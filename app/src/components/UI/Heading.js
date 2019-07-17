@@ -2,8 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const baseStyle = css`
-  color: ${({ color }) =>
-    color === 'gray' ? '#363636' : 'var(--color-main)'};
+  color: ${({color}) => color === 'mainDark' ? 'var(--color-mainDark)' : 'var(--color-mainLight)'};
   font-weight: ${({ bold }) => (bold ? '700' : '300')};
   margin-top: 0;
   letter-spacing: 1px;

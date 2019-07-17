@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   opacity: ${({ opened }) => (opened ? '1' : '0')};
   visibility: ${({ opened }) => (opened ? 'visible' : 'hidden')};
   transition: all 0.1s;
+  max-width: 100%;
 `;
 
 const Backdrop = ({ opened, close }) => {

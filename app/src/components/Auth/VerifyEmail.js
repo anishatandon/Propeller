@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import { FormWrapper } from '../../../hoc/layout/elements'
-import Heading from '../../UI/Heading'
-import Button from '../../UI/Button'
-import Message from '../../UI/Message'
+import { FormWrapper } from '../../hoc/layout/elements'
+import Heading from '../UI/Heading'
+import Button from '../UI/Button'
+import Message from '../UI/Message'
 
-import * as actions from '../../../store/actions'
+import * as actions from '../../store/actions'
 
 const MessageWrapper = styled.div`
     position: absolute;

@@ -12,27 +12,35 @@ import Loader from '../../components/UI/Loader';
 import Todo from './Todo';
 
 const Wrapper = styled.div`
+    z-index: 0;
     width: 100%;
     align-self: flex-start;
+    display: flex;
     height: 100%;
     min-height: calc(100vh - 6rem);
     background-color: var(--color-mainLight);
+    max-width: 100%;
 `;
 
 const InnerWrapper = styled.div`
+  z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem 4rem;
+    padding: 0rem 4rem;
+    background-color: var(--color-mainLight);
+    max-width: 100%;
 `;
 
 const Content = styled.div`
+  z-index: 0;
   display: flex;
   align-items: center;
   width: 100%;
   max-width: 60rem;
   flex-direction: column;
   margin-top: 2rem;
+  background-color: var(--color-mainLight);
 `;
 
 const Todos = ({todos, requesting, requested, userId}) => {
@@ -74,13 +82,11 @@ const Todos = ({todos, requesting, requested, userId}) => {
       <Wrapper>
         <Container>
           <InnerWrapper>
-            <Heading noMargin size='h1' color='white'>Your Todos</Heading>
-            <Heading bold size='h4' color='white'>All you have to do for now...</Heading>
-            <Button color="main" contain onClick={() => setIsAdding(true)}>
-                Add Todo
+            <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
+              Add Todo
             </Button>
-            <InputTodo opened={isAdding} close={() => setIsAdding(false)}/>
-            {content}
+            <InputTodo opened={isAdding} close={() => setIsAdding(false)} />
+              {content}
           </InnerWrapper>
         </Container>
       </Wrapper>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from '../Logo';
 
 const StyledLoader = styled.div`
   display: inline-block;
@@ -16,7 +17,7 @@ const StyledLoader = styled.div`
     border: 6px solid var(--color-main);
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: var(--color-main) transparent transparent transparent;
+    border-color: var(--color-mainDark) transparent transparent transparent;
     &:nth-child(1) {
       animation-delay: -0.45s;
     }
@@ -39,12 +40,14 @@ const StyledLoader = styled.div`
 
 const Loader = () => {
   return (
+    <>
     <StyledLoader>
       <div />
       <div />
       <div />
       <div />
     </StyledLoader>
+    </>
   );
 };
 

@@ -1,18 +1,30 @@
-.grid {
-    width: 1500px;
-    height: 750px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 12% 10% 13% 13% 13% 13% 13% 13%;
-    display: grid;
-    text-align: left;
-    border: solid navy;
-    margin: 20px 20px 20px 20px;
-    padding: 20px 10px 20px 10px;
-    position: relative;
+.gridContainer {
+    display: flex;
+    max-width: 100%;
     align-self: center;
     align-content: center;
     align-items: center;
     justify-content: center;
+}
+
+.grid {
+    width: 1500px;
+    max-width: 100%;
+    height: 750px;
+    max-height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 15% 10% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+    display: grid;
+    text-align: left;
+    border: solid rgba(45,82,124,1);
+    margin: 20px 20px 20px 20px;
+    padding: 20px 10px 20px 10px;
+    position: absolute;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(206,232,250,1);
 }
 .weekday {
     font-weight: bold;
@@ -21,18 +33,19 @@
     padding: 10px 0px 10px 0px;
     width: 100%;
     height: 100%;
-    
 }
 .month {
     grid-column: 2 / 5;
     font-weight: 900;
     font-size: 72px;
     font-family: Tahoma;
-    background-color: navy;
+    background-color: rgba(45,82,124,1);
     color: white;
     text-align: center;
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 .arrowLeft {
     grid-column: 1;
@@ -40,10 +53,12 @@
     font-size: 72px;
     font-family: Tahoma;
     text-align: center;
-    background-color: navy;
+    background-color: rgba(45,82,124,1);
     color: white;
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 .arrowRight {
     grid-column: 7;
@@ -51,10 +66,12 @@
     font-size: 72px;
     font-family: Tahoma;
     text-align: center;
-    background-color: navy;
+    background-color: rgba(45,82,124,1);
     color: white;
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 .year {
     grid-column: 5 / 7;
@@ -65,39 +82,51 @@
     height: 100%;
     box-sizing: border-box;
     text-align: center;
-    background-color: navy;
+    background-color: rgba(45,82,124,1);
     color: white;
     opacity: 1;
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 span {
     font-family: Tahoma;
     font-size: 36px;
     text-align: left;
-    background-color: rgba(0,0,128,0.5);
+    background-color: rgba(45,82,124,0.5);
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 .beforeafter {
-    border: solid navy thin;
+    border: solid rgba(45,82,124,1) thin;
+    max-width: 100%;
+    max-height: 100%;
 }
 .myMonth {
-    background-color: rgba(0,0,128,0.25);
-    border: solid navy thin;
+    background-color: rgba(45,82,124,0.25);
+    border: solid rgba(45,82,124,1) thin;
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 .today {
-    background-color: rgba(0,0,255,0.75);
+    background-color: rgba(45,82,124,0.75);
     color: white;
-    border: solid navy thin;
+    border: solid rgba(45,82,124,1) thin;
     font-size: 48px;
+    max-width: 100%;
+    max-height: 100%;
 
 }
 .clickedDay {
     background-color: white;
-    color: navy;
-    border: solid navy thin;
+    color: rgba(45,82,124,1);
+    border: solid rgba(45,82,124,1) thin;
     font-size: 48px;
+    max-width: 100%;
+    max-height: 100%;
 }
