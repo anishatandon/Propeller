@@ -2,6 +2,8 @@
 import React from 'react';
 import moment from 'moment';
 import './index.css';
+import { connect } from 'react-redux'
+
 
 export class Calendar extends React.Component {
     state = {
@@ -173,7 +175,39 @@ export class Calendar extends React.Component {
         )
     }
 }
+
+/*const Calendar2 = () => {
+    return(
+        <div className="grid">
+            <button className="arrowLeft" onClick={(e)=>{this.prevMonth()}}>{"<"}</button>
+            <this.monthNav/>
+            <this.yearNav/>
+            <button className="arrowRight" onClick={(e)=>{this.nextMonth()}}>{">"}</button>
+            <div className="weekday Sun">{weekdays[0]}</div>
+            <div className="weekday Mon">{weekdays[1]}</div>
+            <div className="weekday Tue">{weekdays[2]}</div>
+            <div className="weekday Wed">{weekdays[3]}</div>
+            <div className="weekday Thu">{weekdays[4]}</div>
+            <div className="weekday Fri">{weekdays[5]}</div>
+            <div className="weekday Sat">{weekdays[6]}</div>
+            {monthBeforeDays}
+            {daysInMonth}
+            {monthAfterDays}
+        </div>
+      )
+  };*/
 // const condition = authUser => !!authUser;
 
 // export default  withAuthorization(condition)(Calendar);
-export default Calendar;
+
+/*const mapStateToProps = ({ auth }) => ({
+    today: moment(),
+    context: moment(),
+    showMonthPopup: false,
+    showYearPopup: false
+  });
+      
+  const mapDispatchToProps = {
+  };*/
+      
+  export default (Calendar);

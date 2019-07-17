@@ -32,7 +32,7 @@ const Controls = styled.div`
 `;
 
 const editStyles = {
-    color: 'var(--color-mainLight)',
+    color: 'var(--color-mainDark)',
     margin: '0 .5rem',
     cursor: 'pointer',
 };

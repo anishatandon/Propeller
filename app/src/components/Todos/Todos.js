@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     display: flex;
     height: 100%;
     min-height: calc(100vh - 6rem);
-    background-color: var(--color-mainLight);
+    background-color: var(--color-mainDark);
     max-width: 100%;
 `;
 
@@ -28,7 +28,7 @@ const InnerWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0rem 4rem;
-    background-color: var(--color-mainLight);
+    background-color: var(--color-mainDark);
     max-width: 100%;
 `;
 
@@ -40,7 +40,7 @@ const Content = styled.div`
   max-width: 60rem;
   flex-direction: column;
   margin-top: 2rem;
-  background-color: var(--color-mainLight);
+  background-color: var(--color-mainDark);
 `;
 
 const Todos = ({todos, requesting, requested, userId}) => {
