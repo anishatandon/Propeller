@@ -40,7 +40,7 @@ const Content = styled.div`
   max-width: 60rem;
   flex-direction: column;
   margin-top: 2rem;
-  background-color: var(--color-mainDark);
+  background-color: var(--color-mainLight);
 `;
 
 const Todos = ({todos, requesting, requested, userId}) => {

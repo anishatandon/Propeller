@@ -15,9 +15,9 @@ const StyledButton = styled.button`
     if (color === 'red') {
       return 'var(--color-errorRed)'
     } else if (color === 'mainDark') {
-      return 'var(--color-mainDark)'
-    } else {
       return 'var(--color-mainLight)'
+    } else {
+      return 'var(--color-mainDark)'
     }
   }};
   margin: 1.5rem 0 2rem 0;

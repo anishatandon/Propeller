@@ -5,7 +5,7 @@ import DeleteTodo from './DeleteTodo'
 import InputTodo from './InputTodo'
 
 const Wrapper = styled.div`
-    z-index: 50;
+    z-index: 150;
     width: 100%;
     position: relative;
     padding: 4rem 3rem;
@@ -17,7 +17,6 @@ const Wrapper = styled.div`
     font-weight: 700;
     text-align: center;
     color: var(--color-mainLight);
-    max-width: 100%;
 `;
 
 const Controls = styled.div`
@@ -28,11 +27,10 @@ const Controls = styled.div`
     display: flex;
     padding: 1rem;
     justify-content: center;
-    max-width: 100%;
 `;
 
 const editStyles = {
-    color: 'var(--color-mainDark)',
+    color: 'var(--color-mainLight)',
     margin: '0 .5rem',
     cursor: 'pointer',
 };
