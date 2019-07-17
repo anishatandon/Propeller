@@ -9,11 +9,13 @@ const MainWrapper = styled.main`
   width: 100%;
   max-width: 100%;
   min-height: calc(100vh - 6rem);
+  max-height: 100%;
   margin-top: 6rem;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(206,232,250,1);
 `;
 
 const Layout = ({ children, signedIn }) => (

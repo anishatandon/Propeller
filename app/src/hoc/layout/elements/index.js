@@ -3,7 +3,7 @@ import { Form } from 'formik';
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 140rem;
+  max-width: 100%;
   margin: 0 auto;
   height: 100%;
   background-color: var(--color-mainLight);
@@ -29,4 +29,5 @@ export const StyledForm = styled(Form)`
   align-items: center;
   width: 100%;
   flex-direction: column;
+  max-width: 100%;
 `;

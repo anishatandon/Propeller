@@ -169,7 +169,7 @@ export class Calendar extends React.Component {
                 {monthBeforeDays}
                 {daysInMonth}
                 {monthAfterDays}
-        </div>
+            </div>
         )
     }
 }

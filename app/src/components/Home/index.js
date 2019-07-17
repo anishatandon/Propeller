@@ -13,6 +13,7 @@ import Todos from '../Todos/Todos';
 
 const Wrapper = styled.div`
     width: 100%;
+    max-width: 100%;
     align-self: flex-start;
     display: flex;
     height: 100%;
@@ -22,8 +23,10 @@ const Wrapper = styled.div`
 
 const InnerWrapper = styled.div`
     display: flex;
+    max-width: 100%;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     padding: 3rem 4rem;
     background-color: var(--color-mainLight);
 `;

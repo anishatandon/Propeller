@@ -14,6 +14,7 @@ const ButtonsWrapper = styled.div`
     width: 100%;
     margin-bottom: 2rem;
     justify-content: space-around;
+    max-width: 100%;
 `;
 
 const TodoWrapper = styled.div`
@@ -21,13 +22,15 @@ const TodoWrapper = styled.div`
     font-size: 1.3rem;
     text-align: center;
     color: var(--color-white);
+    max-width: 100%;
 `;
 
 const MessageWrapper = styled.div`
     position: absolute;
     bottom: 2rem;
     width: 100%;
-    padding: 0 3rem; 
+    padding: 0 3rem;
+    max-width: 100%;
 `;
 
 

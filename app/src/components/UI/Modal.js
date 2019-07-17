@@ -23,6 +23,7 @@ const WrappedModal = styled.div`
   border-radius: 1rem;
   background-color: var(--color-main);
   transition: all 0.1s;
+  cursor: pointer;
 `;
 
 const InsideWrapper = styled.div`
@@ -33,6 +34,7 @@ const InsideWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 4rem 3rem;
+  cursor: pointer;
 `;
 
 const Modal = ({ opened, close, children }) => {

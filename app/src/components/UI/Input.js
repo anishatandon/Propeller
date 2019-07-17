@@ -10,6 +10,7 @@ const InputWrapper = styled.div`
   &:last-of-type {
     margin-bottom: 4.5rem;
   }
+  cursor: pointer;
 `;
 
 const StyledInput = styled.input`

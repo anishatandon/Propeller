@@ -12,22 +12,28 @@ import Loader from '../../components/UI/Loader';
 import Todo from './Todo';
 
 const Wrapper = styled.div`
+    z-index: 0;
     width: 100%;
     align-self: flex-start;
+    display: flex;
     height: 100%;
     min-height: calc(100vh - 6rem);
     background-color: var(--color-mainLight);
+    max-width: 100%;
 `;
 
 const InnerWrapper = styled.div`
+  z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0rem 4rem;
     background-color: var(--color-mainLight);
+    max-width: 100%;
 `;
 
 const Content = styled.div`
+  z-index: 0;
   display: flex;
   align-items: center;
   width: 100%;
@@ -76,8 +82,11 @@ const Todos = ({todos, requesting, requested, userId}) => {
       <Wrapper>
         <Container>
           <InnerWrapper>
-            {content}
-            <InputTodo></InputTodo>
+            <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
+              Add Todo
+            </Button>
+            <InputTodo opened={isAdding} close={() => setIsAdding(false)} />
+              {content}
           </InnerWrapper>
         </Container>
       </Wrapper>
