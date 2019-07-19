@@ -9,7 +9,7 @@ import NavItems from '../Navigation/NavItems';
 const FixedWrapper = styled.header`
   position: fixed;
   background-color: var(--color-mainLight);
-  padding: 0rem 2rem;
+  padding: 0rem 4rem 0rem 4rem;
   top: 0;
   left: 0;
   width: 100%;

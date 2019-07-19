@@ -27,7 +27,7 @@ const InnerWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 3rem 4rem;
+    padding: 0rem 4rem 0rem 4rem;
     background-color: var(--color-mainLight);
 `;
 

@@ -16,6 +16,8 @@ export default createGlobalStyle`
   outline: none;
   }
   html {
+    height: 100%;
+    width: 100%;
     font-size: 62.5%;
     box-sizing: border-box;
     --color-main: ${props => props.theme.colors.main}
@@ -34,7 +36,7 @@ export default createGlobalStyle`
     }
   }
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-weight: 400;
     line-height: 1.6;
   }

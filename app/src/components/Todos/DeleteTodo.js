@@ -18,7 +18,7 @@ const ButtonsWrapper = styled.div`
 `;
 
 const TodoWrapper = styled.div`
-    margin: 1rem 0 rem;
+    margin: 1rem 0rem;
     font-size: 1.3rem;
     text-align: center;
     color: var(--color-white);
@@ -56,7 +56,7 @@ const DeleteTodo = ({show, close, todo, deleteTodo, error, loading}) => {
                 >
                     Delete
                 </Button>
-                <Button color="main" contain onClick={close}>
+                <Button color="mainLight" contain onClick={close}>
                     Cancel
                 </Button>
             </ButtonsWrapper>

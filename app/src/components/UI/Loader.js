@@ -13,8 +13,8 @@ const StyledLoader = styled.div`
     position: absolute;
     width: 51px;
     height: 51px;
-    margin: 6px;
-    border: 6px solid var(--color-main);
+    margin: 6px 6px 6px 6px;
+    border: 6px 6px 6px 6px solid var(--color-main);
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: var(--color-mainDark) transparent transparent transparent;

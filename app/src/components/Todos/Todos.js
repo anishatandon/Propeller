@@ -18,17 +18,17 @@ const Wrapper = styled.div`
     display: flex;
     height: 100%;
     min-height: calc(100vh - 6rem);
-    background-color: var(--color-mainDark);
+    background-color: var(--color-mainLight);
     max-width: 100%;
 `;
 
 const InnerWrapper = styled.div`
-  z-index: 0;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0rem 4rem;
-    background-color: var(--color-mainDark);
+    background-color: var(--color-mainLight);
     max-width: 100%;
 `;
 
@@ -83,7 +83,7 @@ const Todos = ({todos, requesting, requested, userId}) => {
         <Container>
           <InnerWrapper>
             <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
-              Add Todo
+              Add new task
             </Button>
             <InputTodo opened={isAdding} close={() => setIsAdding(false)} />
               {content}
