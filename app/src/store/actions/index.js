@@ -9,4 +9,5 @@ export {
     clean,
 } from './authActions';
 
-export {addTodo, deleteTodo, editTodo, addFriend, deleteFriend} from './todoActions';
+export {addTodo, deleteTodo, editTodo} from './todoActions';
+export {addFriend, deleteFriend, blockFriend} from './friendActions'

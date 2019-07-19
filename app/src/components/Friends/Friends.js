@@ -43,7 +43,7 @@ const Content = styled.div`
   background-color: var(--color-mainLight);
 `;
 
-const Friends = ({friends, requested, userId}) => {
+const Friends = ({friends, requesting, requested, userId}) => {
     const [isAdding, setIsAdding] = useState(false)
     let content;
     if (!friends) {
@@ -54,7 +54,7 @@ const Friends = ({friends, requested, userId}) => {
         );
     } else if (
         !friends[userId] && requested[`friends/${userId}`] ||
-        friends[userId].friends.length === 0
+        friends[userId].length === 0
     ) {
         content = (
             <Content>
@@ -66,13 +66,16 @@ const Friends = ({friends, requested, userId}) => {
     } else{
         content = (
             <Content>
-                {friends[userId].friends
+                {/* {friends[userId].friends.
                     //making shallow copy
                     .slice(0)
                     //reverse ordering
                     .reverse()
                     .map(friend => (
                         <Friend key={friend.id} friend={friend} />
+                ))} */}
+                {friends[userId].friends.map(friend => (
+                    <Friend key={friend.id} friend={friend} />
                 ))}
             </Content>
         );
@@ -82,12 +85,9 @@ const Friends = ({friends, requested, userId}) => {
         <Wrapper>
             <Container>
                 <InnerWrapper>
-                    <Heading noMargin size="h1" color="white">
+                    <Heading noMargin size="h1" bold color="mainDark">
                         Your Friends
                     </Heading>
-                    {/* <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
-                        Add Friend
-                    </Button> */}
                     <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
                         {content}
                     </InnerWrapper>

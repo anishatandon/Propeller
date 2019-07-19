@@ -23,9 +23,9 @@ const SignUpSchema = Yup.object().shape({
     lastName: Yup.string() 
         .required('Your last name is required'),
     username: Yup.string()
-        .required('Username is required.'),
-    // .trim('Username cannot have whitespace') // not working. trying to not use this for validation instead just automatically remove whitespace
-    // .strict(true).lowercase('Username needs to be lowercase'),
+        .required('Username is required.')
+        .trim('Username cannot have whitespace')
+        .strict(true).lowercase('Username needs to be lowercase'),
     email: Yup.string()
         .email('Invalid email.')
         .required('The email is required.'),

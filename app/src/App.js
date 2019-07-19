@@ -8,7 +8,6 @@ import Signin from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 import Signout from './components/Auth/SignOut';
 import Calendar from './components/Calendar/index';
-// import FriendsPage from './components/Friends/index';
 import Friends from './components/Friends/Friends';
 import Account from './components/Auth/Account';
 import VerifyEmail from './components/Auth/VerifyEmail';

@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import { compose } from '../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
 
+import BlockFriend from './BlockFriend'
+import SendTodoFriend from './SendTodoFriend'
 import DeleteFriend from './DeleteFriend'
 import AddFriend from './AddFriend'
 
@@ -28,12 +30,6 @@ const Controls = styled.div`
     padding: 1rem;
     justify-content: center;
 `;
-
-// const editStyles = {
-//     color: 'var(--color-main)',
-//     margin: '0 .5rem',
-//     cursor: 'pointer',
-// };
   
 const deleteStyles = {
     color: 'var(--color-errorRed)',
@@ -41,17 +37,26 @@ const deleteStyles = {
     cursor: 'pointer',
 };
 
+const blockStyles = {
+    color: 'var(--color-errorRed)',
+    margin: '0.5rem',
+    cursor: 'pointer',
+};
+
+const sendTodoStyles = {
+    color: 'var(--color-main)',
+    margin: '0.5rem',
+    cursor: 'pointer',
+};
+
 const Friend = ({ friend }) => {
     const [isDeleting, setisDeleting] = useState(false)
     // const [isEditing, setIsEditing] = useState(false)
-    console.log(isDeleting)
+    const [isBlocking, setisBlocking] = useState(false)
+    const [isSendingTodo, setisSendingTodo] = useState(false)
+    // console.log(isDeleting)
 
     return (
-        // <div className="friend">
-        //     <p>
-        //         <p>You are friends with {friendUsername}</p>
-        //     </p>
-        // </div>
         <Wrapper>
             {friend.friend}
             <Controls>
@@ -60,10 +65,30 @@ const Friend = ({ friend }) => {
                     style={deleteStyles}
                     onClick={() => setisDeleting(true)}
                 />
+                <i
+                    className="fas fa-ban"
+                    style={blockStyles}
+                    onClick={() => setisBlocking(true)}
+                />
+                <i
+                    className="far fa-paper-plane"
+                    style={sendTodoStyles}
+                    onClick={() => setisSendingTodo(true)}
+                />
                 <DeleteFriend
                     friend={friend}
                     show={isDeleting}
                     close={() => setisDeleting(false)}
+                />
+                <BlockFriend
+                    friend={friend}
+                    show={isBlocking}
+                    close={() => setisBlocking(false)}
+                />
+                <SendTodoFriend
+                    friend={friend}
+                    show={isSendingTodo}
+                    onClick={() => setisSendingTodo(true)}
                 />
             </Controls>
         </Wrapper>

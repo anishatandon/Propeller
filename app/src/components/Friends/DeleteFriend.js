@@ -7,7 +7,7 @@ import Button from '../UI/Button'
 import Heading from '../UI/Heading'
 import Message from '../UI/Message'
 import * as actions from '../../store/actions'
-import todosReducer from '../../store/reducers/todosReducer';
+import friendsReducer from '../../store/reducers/friendsReducer';
 
 const ButtonsWrapper = styled.div`
     display: flex;
@@ -70,7 +70,7 @@ const DeleteFriend = ({show, close, friend, deleteFriend, error, loading}) => {
 }
 
 const mapStateToProps = ({friends}) => ({
-    error: friends.deleteTodo.error,
+    error: friends.deleteFriend.error,
     loading: friends.loading
 })
 

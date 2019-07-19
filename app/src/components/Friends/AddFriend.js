@@ -30,8 +30,9 @@ const MessageWrapper = styled.div`
     max-width: 100%;
 `;
 const FriendSchema = Yup.object().shape({
-    todo: Yup.string()
-      .required('The friend username is required.'),
+    friend: Yup.string()
+        .email('Invalid email')
+        .required('The friend username is required.'),
 });
 
 const AddFriend = ({
@@ -70,7 +71,7 @@ const AddFriend = ({
                     {({ isSubmitting, isValid, resetForm }) => (
                         <StyledForm>
                             <Field
-                            type="text"
+                            type="email"
                             name="friend"
                             placeholder="Add a friend by entering their email"
                             component={Input}
