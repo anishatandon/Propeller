@@ -43,7 +43,7 @@ const AddFriend = ({
     const [isOpened, setisOpened] = useState(false)
     return (
         <>
-            <Button color="main" contain onClick={() => setisOpened(true)}>
+            <Button color="mainDark" contain onClick={() => setisOpened(true)}>
                 Add Friend
             </Button>
             <Modal opened={isOpened} close={() => setisOpened(false)}>
@@ -73,7 +73,7 @@ const AddFriend = ({
                             <Field
                             type="text"
                             name="friend"
-                            placeholder="Add a friend by entering their username"
+                            placeholder="Add a friend by entering their email"
                             component={Input}
                             />
                             <ButtonsWrapper>

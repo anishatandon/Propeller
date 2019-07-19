@@ -85,9 +85,9 @@ const Friends = ({friends, requested, userId}) => {
                     <Heading noMargin bold size="h1" color="mainDark">
                         Your Friends
                     </Heading>
-                    <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
+                    {/* <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
                         Add Friend
-                    </Button>
+                    </Button> */}
                     <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
                         {content}
                     </InnerWrapper>
