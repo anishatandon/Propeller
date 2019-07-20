@@ -58,8 +58,8 @@ const Todos = ({todos, requesting, requested, userId}) => {
     ) {
         content = (
             <Content>
-                <Heading color='white'size='h2'>
-                    You have no todos!
+                <Heading color='white' size='h2'>
+                    You have no tasks!
                 </Heading>
             </Content>
         );

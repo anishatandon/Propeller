@@ -14,6 +14,7 @@ export const addTodo = data => async (
       .collection('todos')
       .doc(userId)
       .get();
+    console.log("todos", {res})
     const newTodo = {
       id: new Date().valueOf(),
       todo: data.todo,
