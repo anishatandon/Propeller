@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  z-index: 0;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,43 +59,41 @@ const Friends = ({friends, requesting, requested, userId}) => {
         console.log("else if")
         content = (
             <Content>
-                <Heading color='white'size='h2'>
-                    Add some friends to root for you!
+                <Heading color='white' size='h2'>
+                    Add friends to root for you!
                 </Heading>
             </Content>
         );
     } else{
+        console.log('yes')
         content = (
-            console.log("else ")
             <Content>
-                {/* {friends[userId].friends.
+                {friends[userId].friends
                     //making shallow copy
                     .slice(0)
                     //reverse ordering
                     .reverse()
                     .map(friend => (
-                        <Friend key={friend.id} friend={friend} />
-                ))} */}
-                {friends[userId].friends.map(friend => (
-                    <Friend key={friend.id} friend={friend} />
+                        <Friend key={friend.id} friend={friend}>{friend.username}</Friend>
                 ))}
             </Content>
-        );
+        )
     }
-  
     return (
         <Wrapper>
             <Container>
-                <InnerWrapper>
+                <InnerWrapper> 
                     <Heading noMargin bold size="h1" color="mainDark">
                         Your Friends
                     </Heading>
-                    <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
+                    <AddFriend opened={isAdding} close={() => setIsAdding(false)}>
                         {content}
-                    </InnerWrapper>
+                    </AddFriend>
+                </InnerWrapper>
             </Container>
         </Wrapper>
     )
+
 };
 
 const mapStateToProps = ({firebase, firestore}) => ({

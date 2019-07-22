@@ -17,7 +17,7 @@ const MessageWrapper = styled.div`
     position: absolute;
     bottom: 2rem;
     width: 100%;
-    padding: 0 3rem;
+    padding: 0 3rem 0 3rem;
 `;
 
 const DeleteWrapper = styled.div`
@@ -187,7 +187,7 @@ const Account = ({ firebase, editAccount, loading, error, loadingDelete, errorDe
                     >
                         Delete
                     </Button>
-                    <Button color="mainDarker" contain onClick={() => setModalOpened(false)}>
+                    <Button color="mainLight" contain onClick={() => setModalOpened(false)}>
                         Cancel
                     </Button>
                 </ButtonsWrapper>

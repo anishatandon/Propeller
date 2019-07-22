@@ -4,7 +4,7 @@ import { Form } from 'formik';
 export const Container = styled.div`
   width: 100%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 0 0 0;
   height: 100%;
   background-color: var(--color-mainLight);
 `;
@@ -12,9 +12,9 @@ export const Container = styled.div`
 export const FormWrapper = styled.div`
   width: 100%;
   max-width: 60rem;
-  margin: 2rem auto;
+  margin: 2rem 2rem 2rem 2rem;
   border-radius: 0.7rem;
-  padding: 5rem 8rem;
+  padding: 3rem 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

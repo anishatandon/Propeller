@@ -6,6 +6,7 @@ const baseStyle = css`
   font-weight: ${({ bold }) => (bold ? '700' : '300')};
   margin-top: 0;
   letter-spacing: 1px;
+  text-align: center;
   margin-bottom: ${({ noMargin }) => (noMargin ? '0rem' : '5rem')};
   `;
 

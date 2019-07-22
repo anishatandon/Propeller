@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  z-index: 0;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,8 +58,8 @@ const Todos = ({todos, requesting, requested, userId}) => {
     ) {
         content = (
             <Content>
-                <Heading color='white'size='h2'>
-                    You have no todos!
+                <Heading color='white' size='h2'>
+                    You have no tasks!
                 </Heading>
             </Content>
         );
@@ -83,7 +83,7 @@ const Todos = ({todos, requesting, requested, userId}) => {
         <Container>
           <InnerWrapper>
             <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
-              Add Todo
+              Add new task
             </Button>
             <InputTodo opened={isAdding} close={() => setIsAdding(false)} />
               {content}

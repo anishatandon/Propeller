@@ -8,17 +8,18 @@ import DeleteFriend from './DeleteFriend'
 import AddFriend from './AddFriend'
 
 const Wrapper = styled.div`
+    z-index: 150;
     width: 100%;
     position: relative;
     padding: 4rem 3rem;
-    background-color: var(--color-mainLighter);
+    background-color: var(--color-mainDark);
     box-shadow: 0rem .5rem 3.5rem var(--shadow);
     margin-bottom: 3rem;
     border-radius: 0.5rem;
     font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
-    color: var(--color-white);
+    color: var(--color-mainLight);
 `;
 
 const Controls = styled.div`
@@ -59,7 +60,7 @@ const Friend = ({ friend }) => {
 
     return (
         <Wrapper>
-            {friend.friend}
+            {friend.lastName}{", "}{friend.firstName}
             <Controls>
                 <i
                     className="far fa-trash-alt"

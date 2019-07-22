@@ -1,7 +1,34 @@
 // import { withAuthorization } from '../Session';
 import React from 'react';
 import moment from 'moment';
+import styled from 'styled-components'; 
+import { Formik, Field } from 'formik';
 import './index.css';
+import { connect } from 'react-redux';
+import Button from '../UI/Button';
+import Heading from '../UI/Heading';
+import Modal from '../UI/Modal';
+import Input from '../UI/Input';
+import Message from '../UI/Message';
+import {StyledForm} from '../../hoc/layout/elements';
+
+import * as actions from'../../store/actions';
+
+const ButtonsWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
+    justify-content: space-around;
+    max-width: 100%;
+`;
+
+const MessageWrapper = styled.div`
+    position: absolute;
+    bottom: 0rem;
+    width: 100%;
+    padding: 0 3rem; 
+    max-width: 100%;
+`;
 
 export class Calendar extends React.Component {
     state = {
@@ -121,8 +148,21 @@ export class Calendar extends React.Component {
         )
     }
     onDayClick = (e,day) => {
+        console.log('yes')
         this.props.onDayClick && this.props.onDayClick(e,day);
-    }
+        return (
+            console.log('in'),
+            <Modal opened={true} close={false}>
+                <Heading noMargin size="h1" color="mainDark">
+                    {console.log('ugh')}
+                    trial
+                </Heading>
+                <Heading bold size="h4" color="white">
+                    trial
+                </Heading>
+            </Modal>
+        );
+    };
     render() {
         let weekdays = this.weekdays.map((day) => {
             return (
@@ -134,15 +174,15 @@ export class Calendar extends React.Component {
         let monthBeforeDays = [];
         for (let i = 0; i < this.firstDayOfMonth();i++) {
             let d = i+monthBeforeCount
-            monthBeforeDays.push(<span className="beforeafter" onClick={(e)=>{this.onDayClick(e,d)}}>{d}</span>);
+            monthBeforeDays.push(<span className="beforeafter" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>);
         }
         
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
             if (d === this.currentDate() & this.state.today.format("MMMM") === this.state.context.format("MMMM") & this.state.today.format("YYYY") === this.state.context.format("YYYY")) {
-                daysInMonth.push(<span className="today" onClick={(e)=>{this.onDayClick(e,d)}}>{d}</span>)
+                daysInMonth.push(<span className="today" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>)
             } else {
-                daysInMonth.push(<span className="myMonth" onClick={(e)=>{this.onDayClick(e,d)}}>{d}</span>)
+                daysInMonth.push(<span className="myMonth" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>)
             }
         }
 
@@ -151,7 +191,7 @@ export class Calendar extends React.Component {
         let monthAfterDays = [];
         for (let i = 1; i <= 7-monthAfterCount;i++) {
             let d=i
-            monthAfterDays.push(<span className="beforeafter" onClick={(e)=>{this.onDayClick(e,d)}}>{d}</span>);
+            monthAfterDays.push(<span className="beforeafter" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>);
         }
         return (
             <div className="grid">
@@ -173,7 +213,43 @@ export class Calendar extends React.Component {
         )
     }
 }
+
+
+/*const Calendar2 = () => {
+    return(
+        <div className="grid">
+            <button className="arrowLeft" onClick={(e)=>{this.prevMonth()}}>{"<"}</button>
+            <this.monthNav/>
+            <this.yearNav/>
+            <button className="arrowRight" onClick={(e)=>{this.nextMonth()}}>{">"}</button>
+            <div className="weekday Sun">{weekdays[0]}</div>
+            <div className="weekday Mon">{weekdays[1]}</div>
+            <div className="weekday Tue">{weekdays[2]}</div>
+            <div className="weekday Wed">{weekdays[3]}</div>
+            <div className="weekday Thu">{weekdays[4]}</div>
+            <div className="weekday Fri">{weekdays[5]}</div>
+            <div className="weekday Sat">{weekdays[6]}</div>
+            {monthBeforeDays}
+            {daysInMonth}
+            {monthAfterDays}
+        </div>
+      )
+  };*/
 // const condition = authUser => !!authUser;
 
 // export default  withAuthorization(condition)(Calendar);
-export default Calendar;
+
+/*const mapStateToProps = ({ auth }) => ({
+    today: moment(),
+    context: moment(),
+    showMonthPopup: false,
+    showYearPopup: false
+  });
+      
+  const mapDispatchToProps = {
+  };*/
+      
+  export default (Calendar);
+
+
+

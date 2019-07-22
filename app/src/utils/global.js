@@ -16,17 +16,18 @@ export default createGlobalStyle`
   outline: none;
   }
   html {
+    height: 100%;
+    width: 100%;
     font-size: 62.5%;
     box-sizing: border-box;
     --color-main: ${props => props.theme.colors.main}
     --color-mainDark: ${props => props.theme.colors.mainDark};
-    --color-mainDarker: ${props => props.theme.colors.mainDarker};
     --color-mainLight: ${props => props.theme.colors.mainLight};
-    --color-mainLighter: ${props => props.theme.colors.mainLighter};
     --color-text: ${props => props.theme.colors.textColor};
     --color-white: ${props => props.theme.colors.whiteColor};
     --color-errorRed: ${props => props.theme.colors.errorRed};
     --shadow: ${props => props.theme.colors.shadow};
+    background-color: var(--color-mainLight);
     @media ${props => props.theme.mediaQueries.small} {
       font-size: 60%;
     }
@@ -35,7 +36,7 @@ export default createGlobalStyle`
     }
   }
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-weight: 400;
     line-height: 1.6;
   }

@@ -13,7 +13,8 @@ const LogoWrapper = styled.div`
   align-items: center;
   font-weight: 700;
   font-size: 1.2rem;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  box-sizing: border-box;
 `;
 
 const bluePropel = <img src={blueProp} height='100%' alt="Propeller - Propel to Excel" />
