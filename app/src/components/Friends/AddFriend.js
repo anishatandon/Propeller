@@ -71,9 +71,9 @@ const AddFriend = ({
                     {({ isSubmitting, isValid, resetForm }) => (
                         <StyledForm>
                             <Field
-                            type="email"
+                            type="text"
                             name="friend"
-                            placeholder="Add a friend by entering their email"
+                            placeholder="Add a friend by entering their username"
                             component={Input}
                             />
                             <ButtonsWrapper>
