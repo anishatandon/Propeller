@@ -11,16 +11,22 @@ const StyledButton = styled.button`
   font-weight: 700;
   box-shadow: 0rem 0.5rem 3.5rem var(--shadow);
   color: ${({ color }) => (color==='mainDark' ? 'var(--color-mainLight)' : 'var(--color-mainDark)')};
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
   background-color: ${({ color }) => {
     if (color === 'red') {
       return 'var(--color-errorRed)'
-    } else if (color === 'mainDark') {
-      return 'var(--color-mainDark)'
-    } else {
+    } else if (color === 'mainLight') {
       return 'var(--color-mainLight)'
+    } else {
+      return 'var(--color-mainDark)'
     }
   }};
-  margin: 1.5rem 0 2rem 0;
+  margin: 2rem 0 2rem 0;
   border: none;
   transition: all 0.2s;
   &:hover {

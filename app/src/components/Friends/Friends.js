@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  z-index: 0;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,8 +58,8 @@ const Friends = ({friends, requested, userId}) => {
     ) {console.log("elif")
         content = (
             <Content>
-                <Heading color='white'size='h2'>
-                    Add some friends to root for you!
+                <Heading color='white' size='h2'>
+                    Add friends to root for you!
                 </Heading>
             </Content>
         );
@@ -73,7 +73,7 @@ const Friends = ({friends, requested, userId}) => {
                     //reverse ordering
                     .reverse()
                     .map(friend => (
-                        <Friend key={friend.id} friend={friend} />
+                        <Friend key={friend.id} friend={friend}>{friend.username}</Friend>
                 ))}
             </Content>
         );
@@ -86,12 +86,13 @@ const Friends = ({friends, requested, userId}) => {
                     <Heading noMargin bold size="h1" color="mainDark">
                         Your Friends
                     </Heading>
-                    {/* <Button color="mainDark" contain onClick={() => setIsAdding(true)}>
+                    {/*<Button color="mainDark" contain onClick={() => setIsAdding(true)}>
                         Add Friend
-                    </Button> */}
-                    <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
+                    </Button>*/}
+                    <AddFriend opened={isAdding} close={() => setIsAdding(false)}>
                         {content}
-                    </InnerWrapper>
+                    </AddFriend>
+                </InnerWrapper>
             </Container>
         </Wrapper>
     )
