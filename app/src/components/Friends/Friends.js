@@ -89,10 +89,10 @@ const Friends = ({friends, requested, userId}) => {
                     {/*<Button color="mainDark" contain onClick={() => setIsAdding(true)}>
                         Add Friend
                     </Button>*/}
-                    <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
+                    <AddFriend opened={isAdding} close={() => setIsAdding(false)}>
                         {content}
-                        {'hello'}
-                    </InnerWrapper>
+                    </AddFriend>
+                </InnerWrapper>
             </Container>
         </Wrapper>
     )
