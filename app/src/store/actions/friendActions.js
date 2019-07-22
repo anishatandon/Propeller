@@ -1,7 +1,9 @@
 import * as actions from './actionTypes';
 
+// var admin = require('firebase-admin')
 // Add a friend
-export const addFriend = data => async (
+// export const addFriend = data => async (
+  export const addFriend = username => async (
     dispatch,
     getState,
     { getFirestore, getFirebase }
@@ -9,32 +11,38 @@ export const addFriend = data => async (
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
     dispatch({ type: actions.ADD_FRIEND_START });
+
     try {
       const res = await firestore
-        .collection('friends')
-        .doc(userId)
-        .get();
-      const newFriend = {
-        id: new Date().valueOf(),
-        friend: data.friend,
-      };
-      if (!res.data()) {
-        firestore
-          .collection('friends')
-          .doc(userId)
-          .set({
-            friends: [newFriend],
-          });
-      } else {
-        firestore
-          .collection('friends')
-          .doc(userId)
-          .update({
-            friends: [...res.data().friends, newFriend],
-          });
-      }
-      dispatch({ type: actions.ADD_FRIEND_SUCCESS });
-      return true;
+            .collection('friends')
+            .doc(userId)
+            .get();
+      console.log("outside", {res})
+      await firestore
+        .collection('users')
+        .where('username', "==", username.friend)
+        .get()
+        .then(querySnapshot => {
+          const newFriend = querySnapshot.docs.map(doc => doc.data())[0];
+          console.log({newFriend});
+        if (!res.data()) {
+          firestore
+            .collection('friends')
+            .doc(userId)
+            .set({
+              friends: [newFriend],
+            });
+        } else {
+          firestore
+            .collection('friends')
+            .doc(userId)
+            .update({
+              friends: [...res.data().friends, newFriend],
+            });
+            dispatch({ type: actions.ADD_FRIEND_SUCCESS });
+            return true;
+        }
+      })
     } catch (err) {
       dispatch({ type: actions.ADD_FRIEND_FAIL, payload: err.message });
     }

@@ -70,7 +70,7 @@ const DeleteFriend = ({show, close, friend, deleteFriend, error, loading}) => {
 }
 
 const mapStateToProps = ({friends}) => ({
-    error: friends.deleteFriend.error,
+    // error: friends.deleteTodo.error,
     loading: friends.loading
 })
 

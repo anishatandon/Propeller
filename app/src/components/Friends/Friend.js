@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import { compose } from '../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
+// import { compose } from '../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
 
 import BlockFriend from './BlockFriend'
 import SendTodoFriend from './SendTodoFriend'
@@ -55,6 +55,7 @@ const Friend = ({ friend }) => {
     const [isBlocking, setisBlocking] = useState(false)
     const [isSendingTodo, setisSendingTodo] = useState(false)
     // console.log(isDeleting)
+    console.log({isDeleting})
 
     return (
         <Wrapper>

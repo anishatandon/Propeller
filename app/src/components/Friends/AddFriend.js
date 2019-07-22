@@ -31,7 +31,7 @@ const MessageWrapper = styled.div`
 `;
 const FriendSchema = Yup.object().shape({
     friend: Yup.string()
-        .email('Invalid email')
+        // .email('Invalid email')
         .required('The friend username is required.'),
 });
 
@@ -51,7 +51,7 @@ const AddFriend = ({
                     Send friend request
                 </Heading>
                 <Heading bold size="h4" color="white">
-                    Type in friends's email and send friend request
+                    Type in friend's username and send friend request
                 </Heading>
                     <Formik
                         initialValues={{
@@ -59,7 +59,7 @@ const AddFriend = ({
                         }}
                     validationSchema={FriendSchema}
                     onSubmit={async (values, { setSubmitting, resetForm }) => {
-                        // send our friend
+                        // add our friend
                         const res = await addFriend(values)
                         setSubmitting(false);
                         if (res) {

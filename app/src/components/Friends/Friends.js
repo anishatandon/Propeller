@@ -56,6 +56,7 @@ const Friends = ({friends, requesting, requested, userId}) => {
         !friends[userId] && requested[`friends/${userId}`] ||
         friends[userId].length === 0
     ) {
+        console.log("else if")
         content = (
             <Content>
                 <Heading color='white'size='h2'>
@@ -65,6 +66,7 @@ const Friends = ({friends, requesting, requested, userId}) => {
         );
     } else{
         content = (
+            console.log("else ")
             <Content>
                 {/* {friends[userId].friends.
                     //making shallow copy
@@ -85,7 +87,7 @@ const Friends = ({friends, requesting, requested, userId}) => {
         <Wrapper>
             <Container>
                 <InnerWrapper>
-                    <Heading noMargin size="h1" bold color="mainDark">
+                    <Heading noMargin bold size="h1" color="mainDark">
                         Your Friends
                     </Heading>
                     <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
