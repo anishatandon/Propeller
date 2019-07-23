@@ -41,6 +41,7 @@ const Content = styled.div`
   flex-direction: column;
   margin-top: 2rem;
   background-color: var(--color-mainLight);
+  color: var(--color-mainLight);
 `;
 
 const Friends = ({friends, requested, userId}) => {
