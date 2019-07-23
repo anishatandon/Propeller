@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
-    color: var(--color-mainLight);
+    color: var(--color-mainDark);
 `;
 
 const Controls = styled.div`
@@ -53,10 +53,10 @@ const sendTodoStyles = {
 const Friend = ({ friend }) => {
     const [isDeleting, setisDeleting] = useState(false)
     // const [isEditing, setIsEditing] = useState(false)
-    const [isBlocking, setisBlocking] = useState(false)
-    const [isSendingTodo, setisSendingTodo] = useState(false)
-    // console.log(isDeleting)
-    console.log({isDeleting})
+    // const [isBlocking, setisBlocking] = useState(false)
+    // const [isSendingTodo, setisSendingTodo] = useState(false)
+    console.log(isDeleting)
+    // console.log({isDeleting})
 
     return (
         <Wrapper>
@@ -67,7 +67,7 @@ const Friend = ({ friend }) => {
                     style={deleteStyles}
                     onClick={() => setisDeleting(true)}
                 />
-                <i
+                {/* <i
                     className="fas fa-ban"
                     style={blockStyles}
                     onClick={() => setisBlocking(true)}
@@ -76,13 +76,13 @@ const Friend = ({ friend }) => {
                     className="far fa-paper-plane"
                     style={sendTodoStyles}
                     onClick={() => setisSendingTodo(true)}
-                />
+                /> */}
                 <DeleteFriend
                     friend={friend}
                     show={isDeleting}
                     close={() => setisDeleting(false)}
                 />
-                <BlockFriend
+                {/* <BlockFriend
                     friend={friend}
                     show={isBlocking}
                     close={() => setisBlocking(false)}
@@ -91,7 +91,7 @@ const Friend = ({ friend }) => {
                     friend={friend}
                     show={isSendingTodo}
                     onClick={() => setisSendingTodo(true)}
-                />
+                /> */}
             </Controls>
         </Wrapper>
     )
