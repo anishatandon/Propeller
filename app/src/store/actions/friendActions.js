@@ -21,6 +21,7 @@ import * as actions from './actionTypes';
       await firestore
         .collection('users')
         .where('username', "==", username.friend)
+        // && 'username', "!=", friends.friends.username
         .get()
         .then(querySnapshot => {
           const newFriend = querySnapshot.docs.map(doc => doc.data())[0];
@@ -80,10 +81,10 @@ export const deleteFriend = username => async(
 }
   
 // Block friend
-export const blockFriend = id => async(
+export const blockFriend = username => async(
   dispatch,
   getState,
-  {getFirestore}
+  {getFirestore, getFirebase }
 ) => {
   const firestore = getFirestore();
   const userId = getState().firebase.auth.uid;
@@ -93,12 +94,13 @@ export const blockFriend = id => async(
       .collection('blockedFriends')
       .doc(userId)
       .get();
+    console.log("blockedFriends", {res})
     const previousFriends = res.data().friends;
-    const newFriends = previousFriends.filter(friend => friend.id !== id)
+    const newFriends = previousFriends.filter(friend => friend.username !== username)
     const previousBlockedFriends = res.data().blockedFriends
-    const newBlockedFriends = previousBlockedFriends.add(friend => friend.id !== id)
+    const newBlockedFriends = previousBlockedFriends.add(friend => friend.username !== username)
     await firestore
-      .collection('blockedFriends')
+      .collection('friends')
       .doc(userId)
       .update({
         friends: newFriends,

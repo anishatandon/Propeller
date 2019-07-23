@@ -91,7 +91,8 @@ const AddFriend = ({
                                     color="mainLight"
                                     contain
                                     onClick={() => {
-                                        setisOpened(false);
+                                        // setisOpened(false);
+                                        close();
                                         resetForm();
                                     }}
                                 >

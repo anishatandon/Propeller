@@ -44,19 +44,19 @@ const blockStyles = {
     cursor: 'pointer',
 };
 
-const sendTodoStyles = {
-    color: 'var(--color-main)',
-    margin: '0.5rem',
-    cursor: 'pointer',
-};
+// const sendTodoStyles = {
+//     color: 'var(--color-main)',
+//     margin: '0.5rem',
+//     cursor: 'pointer',
+// };
 
 const Friend = ({ friend }) => {
     const [isDeleting, setisDeleting] = useState(false)
     // const [isEditing, setIsEditing] = useState(false)
-    // const [isBlocking, setisBlocking] = useState(false)
+    const [isBlocking, setisBlocking] = useState(false)
     // const [isSendingTodo, setisSendingTodo] = useState(false)
-    console.log(isDeleting)
-    // console.log({isDeleting})
+    // console.log(isDeleting)
+    console.log({isBlocking})
 
     return (
         <Wrapper>
@@ -67,12 +67,12 @@ const Friend = ({ friend }) => {
                     style={deleteStyles}
                     onClick={() => setisDeleting(true)}
                 />
-                {/* <i
+                <i
                     className="fas fa-ban"
                     style={blockStyles}
                     onClick={() => setisBlocking(true)}
                 />
-                <i
+                {/* <i
                     className="far fa-paper-plane"
                     style={sendTodoStyles}
                     onClick={() => setisSendingTodo(true)}
@@ -82,12 +82,12 @@ const Friend = ({ friend }) => {
                     show={isDeleting}
                     close={() => setisDeleting(false)}
                 />
-                {/* <BlockFriend
+                <BlockFriend
                     friend={friend}
                     show={isBlocking}
                     close={() => setisBlocking(false)}
                 />
-                <SendTodoFriend
+                {/* <SendTodoFriend
                     friend={friend}
                     show={isSendingTodo}
                     onClick={() => setisSendingTodo(true)}

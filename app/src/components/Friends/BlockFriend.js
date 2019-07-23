@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react';
+import { Formik, Field } from 'formik';
+import * as Yup from 'yup';
 import {connect} from 'react-redux'
 import styled from 'styled-components'
 
@@ -6,6 +8,8 @@ import Modal from '../UI/Modal'
 import Button from '../UI/Button'
 import Heading from '../UI/Heading'
 import Message from '../UI/Message'
+import Input from ',,/UI/Input'
+
 import * as actions from '../../store/actions'
 import friendsReducer from '../../store/reducers/friendsReducer';
 
@@ -34,14 +38,20 @@ const MessageWrapper = styled.div`
 `;
 
 
-const BlockFriend = ({show, close, friend, blockFriend, error, loading}) => {
+const BlockFriend = ({
+    show,
+    close,
+    friend,
+    blockFriend,
+    error,
+    loading}) => {
     return (
         <Modal opened={show} close={close}>
             <Heading noMargin size="h1" color="white">
                 Block Friend
             </Heading>
             <Heading bold size="h4" color="white">
-                Are you sure you want to block this friend?
+                Are you sure you want to block this friend? They will not be able to re-friend you.
             </Heading>
             <FriendWrapper>
                 {friend.friend}
@@ -50,13 +60,13 @@ const BlockFriend = ({show, close, friend, blockFriend, error, loading}) => {
                 <Button
                     contain
                     color="red"
-                    onClick={() => blockFriend(friend.id)}
+                    onClick={() => blockFriend(friend.username)}
                     disabled={loading}
                     loading={loading ? 'Blocking...' : null}
                 >
                     Block
                 </Button>
-                <Button color="main" contain onClick={close}>
+                <Button color="mainLight" contain onClick={close}>
                     Cancel
                 </Button>
             </ButtonsWrapper>
