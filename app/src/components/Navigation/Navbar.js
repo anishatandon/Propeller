@@ -33,7 +33,7 @@ const Navbar = ({ signedIn }) => {
     <FixedWrapper>
       <Container>
         <Wrapper>
-          <button style={{width:'6rem',height:'6rem'}} ><NavLink to='/'><Logo style={{width:'6rem',height:'6rem'}}/></NavLink></button>
+          <button style={{width:'6rem',height:'6rem'}}><NavLink to='/'><Logo style={{width:'6rem',height:'6rem'}}/></NavLink></button>
           
           <NavItems signedIn={signedIn} />
         </Wrapper>

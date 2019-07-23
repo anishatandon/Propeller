@@ -1,5 +1,5 @@
 // import { withAuthorization } from '../Session';
-import React from 'react';
+import React, {useState} from 'react';
 import moment from 'moment';
 import styled from 'styled-components'; 
 import { Formik, Field } from 'formik';
@@ -32,6 +32,45 @@ const MessageWrapper = styled.div`
     padding: 0 3rem; 
     max-width: 100%;
 `;
+
+const CheckTaskList = ({
+    close,
+    opened,
+    loading,
+    error,
+}) => {
+    return (
+        <>
+            <Heading noMargin size="h1" color="white">
+                    Task List
+                </Heading>
+                <Heading bold size="h4" color="white">
+                    {console.log('goo')}
+                    Your task list for . . .
+                </Heading>
+                    <StyledForm>
+                            <ButtonsWrapper>
+                                <Button
+                                    type="button"
+                                    color="mainLight"
+                                    contain
+                                    //onClick={() => {
+                                        //close();
+                                        //resetForm();
+                                    //}}
+                                >
+                                    Close my task list
+                                </Button>
+                            </ButtonsWrapper>
+                            <MessageWrapper>
+                            <Message error show={error}>
+                                {error}
+                            </Message>
+                            </MessageWrapper>
+                        </StyledForm>
+        </>
+    )
+}
 
 export class Calendar extends React.Component {
     state = {
@@ -150,23 +189,17 @@ export class Calendar extends React.Component {
             </span>
         )
     }
-    onDayClick = (e,day) => {
-        console.log('yes')
-        this.props.onDayClick && this.props.onDayClick(e,day);
+    onDayClick = (day) => {
+        this.props.onDayClick && this.props.onDayClick(day);
         return (
-            console.log('in'),
-            <Modal opened={true} close={false}>
-                <Heading noMargin size="h1" color="mainDark">
-                    {console.log('ugh')}
-                    trial
-                </Heading>
-                <Heading bold size="h4" color="white">
-                    trial
-                </Heading>
-            </Modal>
-        );
+            <>
+                <CheckTaskList ></CheckTaskList>
+            </>
+        )
     };
     render() {
+        //const [isAdding, setIsAdding] = useState(false)
+        let content
         let weekdays = this.weekdays.map((day) => {
             return (
                 <div className="weekday">{day}</div>
@@ -177,15 +210,15 @@ export class Calendar extends React.Component {
         let monthBeforeDays = [];
         for (let i = 0; i < this.firstDayOfMonth();i++) {
             let d = i+monthBeforeCount
-            monthBeforeDays.push(<span className="beforeafter" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}<img src={blue2Smile} height='100%' alt="Blue Smile 2" /></span>);
+            monthBeforeDays.push(<span className="beforeafter" onClick={(d)=>{this.onDayClick(d)}}>{d}<img src={blue2Smile} height='100%' alt="Blue Smile 2" /></span>);
         }
         
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
             if (d === this.currentDate() & this.state.today.format("MMMM") === this.state.context.format("MMMM") & this.state.today.format("YYYY") === this.state.context.format("YYYY")) {
-                daysInMonth.push(<span className="today" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}<img src={blue2Smile} height='100%' alt="Blue Smile 2" /></span>)
+                daysInMonth.push(<span className="today" onClick={(d)=>{this.onDayClick(d)}}>{d}<img src={blue2Smile} height='100%' alt="Blue Smile 2" /></span>)
             } else {
-                daysInMonth.push(<span className="myMonth" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>)
+                daysInMonth.push(<span className="myMonth" onClick={(d)=>{this.onDayClick(d)}}>{d}</span>)
             }
         }
 
@@ -194,7 +227,8 @@ export class Calendar extends React.Component {
         let monthAfterDays = [];
         for (let i = 1; i <= 7-monthAfterCount;i++) {
             let d=i
-            monthAfterDays.push(<span className="beforeafter" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>);
+            content=this.onDayClick(d,true)
+            monthAfterDays.push(<span className="beforeafter" onClick={(d)=>{this.onDayClick(d)}}>{d}</span>);
         }
         return (
             <>

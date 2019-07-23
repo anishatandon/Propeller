@@ -19,6 +19,7 @@
     justify-content: center;
     justify-items: center;
     background-color: rgba(206,232,250,1);
+    z-index: 10;
 }
 .weekday {
     font-weight: bold;
