@@ -88,7 +88,7 @@ const AddFriend = ({
                                 </Button>
                                 <Button
                                     type="button"
-                                    color="main"
+                                    color="mainLight"
                                     contain
                                     onClick={() => {
                                         setisOpened(false);

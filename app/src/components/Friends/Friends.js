@@ -54,9 +54,11 @@ const Friends = ({friends, requesting, requested, userId}) => {
         );
     } else if (
         !friends[userId] && requested[`friends/${userId}`] ||
-        friends[userId].length === 0
-    ) {
-        console.log("else if")
+    //     friends[userId].length === 0
+    // ) {
+    //     console.log("else if")
+        friends[userId].friends.length === 0
+    ) {console.log("elif")
         content = (
             <Content>
                 <Heading color='white' size='h2'>
@@ -65,7 +67,7 @@ const Friends = ({friends, requesting, requested, userId}) => {
             </Content>
         );
     } else{
-        console.log('yes')
+        console.log("else")
         content = (
             <Content>
                 {friends[userId].friends
