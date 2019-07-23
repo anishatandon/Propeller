@@ -14,6 +14,9 @@ import {StyledForm} from '../../hoc/layout/elements';
 
 import * as actions from'../../store/actions';
 
+import blue2Smile from '../StickerPacks/Smiles/blue2Smile.png';
+
+
 const ButtonsWrapper = styled.div`
     display: flex;
     width: 100%;
@@ -174,13 +177,13 @@ export class Calendar extends React.Component {
         let monthBeforeDays = [];
         for (let i = 0; i < this.firstDayOfMonth();i++) {
             let d = i+monthBeforeCount
-            monthBeforeDays.push(<span className="beforeafter" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>);
+            monthBeforeDays.push(<span className="beforeafter" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}<img src={blue2Smile} height='100%' alt="Blue Smile 2" /></span>);
         }
         
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
             if (d === this.currentDate() & this.state.today.format("MMMM") === this.state.context.format("MMMM") & this.state.today.format("YYYY") === this.state.context.format("YYYY")) {
-                daysInMonth.push(<span className="today" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>)
+                daysInMonth.push(<span className="today" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}<img src={blue2Smile} height='100%' alt="Blue Smile 2" /></span>)
             } else {
                 daysInMonth.push(<span className="myMonth" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>)
             }
@@ -194,6 +197,7 @@ export class Calendar extends React.Component {
             monthAfterDays.push(<span className="beforeafter" onClick={(e,d)=>{this.onDayClick(e,d,true)}}>{d}</span>);
         }
         return (
+            <>
             <div className="grid">
                 <button className="arrowLeft" onClick={(e)=>{this.prevMonth()}}>{"<"}</button>
                 <this.monthNav/>
@@ -210,6 +214,7 @@ export class Calendar extends React.Component {
                 {daysInMonth}
                 {monthAfterDays}
             </div>
+            </>
         )
     }
 }
