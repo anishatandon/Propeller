@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
-    color: var(--color-mainDark);
+    color: var(--color-mainLight);
 `;
 
 const Controls = styled.div`
