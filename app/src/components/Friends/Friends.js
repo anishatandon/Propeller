@@ -70,6 +70,8 @@ const Friends = ({friends, requesting, requested, userId}) => {
         console.log("else")
         content = (
             <Content>
+                <>
+                <p>else </p>
                 {friends[userId].friends
                     //making shallow copy
                     .slice(0)
@@ -78,6 +80,7 @@ const Friends = ({friends, requesting, requested, userId}) => {
                     .map(friend => (
                         <Friend key={friend.id} friend={friend}>{friend.username}</Friend>
                 ))}
+                </>
             </Content>
         )
     }
@@ -88,9 +91,8 @@ const Friends = ({friends, requesting, requested, userId}) => {
                     <Heading noMargin bold size="h1" color="mainDark">
                         Your Friends
                     </Heading>
-                    <AddFriend opened={isAdding} close={() => setIsAdding(false)}>
-                        {content}
-                    </AddFriend>
+                    <AddFriend opened={isAdding} close={() => setIsAdding(false)}></AddFriend>
+                    {content}
                 </InnerWrapper>
             </Container>
         </Wrapper>
