@@ -27,7 +27,7 @@ const StyledNavLink = styled(NavLink)`
         : '2px solid var(--color-mainDark);'};
   }
   
-  &.active {
+  &:active {
     border-bottom: ${props =>
       props.mobile
         ? '1px solid var(--color-mainDark)'

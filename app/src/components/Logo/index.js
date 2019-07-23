@@ -8,7 +8,8 @@ import { NavLink } from 'react-router-dom';
 
 const LogoWrapper = styled.div`
   color: var(--color-white);
-  height: ${({size}) => size === 'small' ? '20rem' : '100%'};
+  height: ${({size}) => size === 'small' ? '20rem' : '6rem'};
+  width: ${({size}) => size === 'small' ? '20rem' : '6rem'};
   display: flex;
   align-items: center;
   font-weight: 700;

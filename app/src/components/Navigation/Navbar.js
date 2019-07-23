@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Logo from '../Logo/index';
 import { Container } from '../../hoc/layout/elements';
 import NavItems from '../Navigation/NavItems';
+import { NavLink } from 'react-router-dom';
 
 
 const FixedWrapper = styled.header`
@@ -32,7 +33,8 @@ const Navbar = ({ signedIn }) => {
     <FixedWrapper>
       <Container>
         <Wrapper>
-          <Logo /*onClick = {true}*//>
+          <button style={{width:'6rem',height:'6rem'}} ><NavLink to='/'><Logo style={{width:'6rem',height:'6rem'}}/></NavLink></button>
+          
           <NavItems signedIn={signedIn} />
         </Wrapper>
       </Container>
