@@ -1,13 +1,61 @@
 import * as actions from './actionTypes';
 
-// var admin = require('firebase-admin')
+
+function getParent(snapshot){
+  var ref = snapshot.ref();
+  return ref.parent().name();
+}
 // Add a friend
-// export const addFriend = data => async (
   export const addFriend = username => async (
     dispatch,
     getState,
     { getFirestore, getFirebase }
   ) => {
+    const firestore = getFirestore();
+    const userId = getState().firebase.auth.uid;
+    dispatch({ type: actions.ADD_FRIEND_START });
+
+    try {
+      const user = await firestore
+            .collection('friends')
+            .doc(userId)
+            .get();
+      console.log("outside", {user})
+      await firestore
+        .collection('users')
+        .where('username', "==", username.friend)
+        .get()
+        .then(querySnapshot => {
+            const newFriend = querySnapshot.docs.map(doc => doc.data())[0];
+            const newFriendID = newFriend.uid
+          console.log({newFriend});
+          console.log({newFriendID});
+        if (!user.data()) {
+          firestore
+            .collection('friends')
+            .doc(newFriendID)
+            .set({
+              friends: [newFriend],
+            });
+        } else {
+          firestore
+            .collection('friends')
+            .doc(userId)
+            .update({
+              friends: [...user.data().friends, newFriend],
+            });
+            dispatch({ type: actions.ADD_FRIEND_SUCCESS });
+            return true;
+        }
+      })
+    } catch (err) {
+      dispatch({ type: actions.ADD_FRIEND_FAIL, payload: err.message });
+    }
+  };
+
+  // SEND INVITE
+  /*
+  export const sendInvite = username => async(dispatch, getState, { getFirestore, getFirebase }) => {
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
     dispatch({ type: actions.ADD_FRIEND_START });
@@ -47,6 +95,8 @@ import * as actions from './actionTypes';
       dispatch({ type: actions.ADD_FRIEND_FAIL, payload: err.message });
     }
   };
+  
+*/
   
   // Delete friend
   export const deleteFriend = id => async(

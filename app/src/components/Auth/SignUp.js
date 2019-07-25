@@ -109,6 +109,7 @@ const SignUp = ({ signUp, loading, error, cleanUp }) => {
                             disabled={!isValid || isSubmitting}
                             loading={loading ? 'Signing up...' : null}
                             type="submit"
+                            color='mainDark'
                         >
                             Sign up
                         </Button>

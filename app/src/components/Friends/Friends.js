@@ -43,7 +43,7 @@ const Content = styled.div`
   background-color: var(--color-mainLight);
 `;
 
-const Friends = ({friends, requesting, requested, userId}) => {
+const Friends = ({friends, requested, userId}) => {
     const [isAdding, setIsAdding] = useState(false)
     let content;
     if (!friends) {
@@ -54,9 +54,6 @@ const Friends = ({friends, requesting, requested, userId}) => {
         );
     } else if (
         !friends[userId] && requested[`friends/${userId}`] ||
-    //     friends[userId].length === 0
-    // ) {
-    //     console.log("else if")
         friends[userId].friends.length === 0
     ) {console.log("elif")
         content = (
@@ -70,17 +67,14 @@ const Friends = ({friends, requesting, requested, userId}) => {
         console.log("else")
         content = (
             <Content>
-                <>
-                <p>else </p>
                 {friends[userId].friends
                     //making shallow copy
                     .slice(0)
                     //reverse ordering
                     .reverse()
                     .map(friend => (
-                        <Friend key={friend.id} friend={friend}>{friend.username}</Friend>
+                        <Friend key={friend.id} friend={friend}>{friend.friend}</Friend>
                 ))}
-                </>
             </Content>
         )
     }
@@ -91,7 +85,7 @@ const Friends = ({friends, requesting, requested, userId}) => {
                     <Heading noMargin bold size="h1" color="mainDark">
                         Your Friends
                     </Heading>
-                    <AddFriend opened={isAdding} close={() => setIsAdding(false)}></AddFriend>
+                    <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
                     {content}
                 </InnerWrapper>
             </Container>
