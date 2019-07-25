@@ -14,7 +14,6 @@ function getParent(snapshot){
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
     dispatch({ type: actions.ADD_FRIEND_START });
-
     try {
       const user = await firestore
             .collection('friends')
@@ -62,10 +61,11 @@ function getParent(snapshot){
 
     try {
       const res = await firestore
-            .collection('friends')
-            .doc(userId)
-            .get();
-      console.log("outside", {res})
+        .collection('friends')
+        .doc(userId)
+        .get();
+      // console.log("outside", {res})
+      console.log("friends", {res})
       await firestore
         .collection('users')
         .where('username', "==", username.friend)
@@ -95,66 +95,67 @@ function getParent(snapshot){
       dispatch({ type: actions.ADD_FRIEND_FAIL, payload: err.message });
     }
   };
-  
 */
   
-  // Delete friend
-  export const deleteFriend = id => async(
-    dispatch,
-    getState,
-    {getFirestore}
-  ) => {
-    const firestore = getFirestore();
-    const userId = getState().firebase.auth.uid;
-    dispatch({type: actions.DELETE_FRIEND_START });
-    try {
-      const res = await firestore
-        .collection('friends')
-        .doc(userId)
-        .get();
-      const previousFriends = res.data().friends;
-      const newFriends = previousFriends.filter(friend => friend.id !== id)
-      await firestore
-        .collection('friends')
-        .doc(userId)
-        .update({
-          friends: newFriends,
-        })
+// Delete friend
+export const deleteFriend = username => async(
+  dispatch,
+  getState,
+  {getFirestore}
+) => {
+  const firestore = getFirestore();
+  const userId = getState().firebase.auth.uid;
+  // const username = getState().
+  console.log(username)
+  dispatch({type: actions.DELETE_FRIEND_START });
+  try {
+    const res = await firestore
+      .collection('friends')
+      .doc(userId)
+      .get();
+    const previousFriends = res.data().friends;
+    const newFriends = previousFriends.filter(friend => friend.username !== username)
+    await firestore
+      .collection('friends')
+      .doc(userId)
+      .update({
+        friends: newFriends,
+      })
   
-      dispatch({type: actions.DELETE_FRIEND_SUCCESS})
-    } catch(err) {
-      dispatch({type: actions.DELETE_FRIEND_FAIL, payload: err.message})
-    }
+    dispatch({type: actions.DELETE_FRIEND_SUCCESS})
+  } catch(err) {
+    dispatch({type: actions.DELETE_FRIEND_FAIL, payload: err.message})
   }
+}
   
-  // Block friend
-  export const blockFriend = id => async(
-    dispatch,
-    getState,
-    {getFirestore}
-  ) => {
-    const firestore = getFirestore();
-    const userId = getState().firebase.auth.uid;
-    dispatch({type: actions.BLOCK_FRIEND_START });
-    try {
-      const res = await firestore
-        .collection('blockedFriends')
-        .doc(userId)
-        .get();
-      const previousFriends = res.data().friends;
-      const newFriends = previousFriends.filter(friend => friend.id !== id)
-      const previousBlockedFriends = res.data().blockedFriends
-      const newBlockedFriends = previousBlockedFriends.add(friend => friend.id !== id)
-      await firestore
-        .collection('blockedFriends')
-        .doc(userId)
-        .update({
-          friends: newFriends,
-          blockedFriends: newBlockedFriends,
-        })
+// Block friend
+export const blockFriend = id => async(
+  dispatch,
+  getState,
+  {getFirestore}
+) => {
+  const firestore = getFirestore();
+  const userId = getState().firebase.auth.uid;
+  dispatch({type: actions.BLOCK_FRIEND_START });
+  try {
+    const res = await firestore
+      .collection('blockedFriends')
+      .doc(userId)
+      .get();
+    const previousFriends = res.data().friends;
+    const newFriends = previousFriends.filter(friend => friend.id !== id)
+    const previousBlockedFriends = res.data().blockedFriends
+    const newBlockedFriends = previousBlockedFriends.add(friend => friend.id !== id)
+    await firestore
+      .collection('blockedFriends')
+      .doc(userId)
+      .update({
+        friends: newFriends,
+        blockedFriends: newBlockedFriends,
+      })
   
-      dispatch({type: actions.BLOCK_FRIEND_SUCCESS})
-    } catch(err) {
-      dispatch({type: actions.BLOCK_FRIEND_FAIL, payload: err.message})
-    }
+    dispatch({type: actions.BLOCK_FRIEND_SUCCESS})
+  } catch(err) {
+    dispatch({type: actions.BLOCK_FRIEND_FAIL, payload: err.message})
   }
+}

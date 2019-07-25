@@ -50,13 +50,13 @@ const DeleteFriend = ({show, close, friend, deleteFriend, error, loading}) => {
                 <Button
                     contain
                     color="red"
-                    onClick={() => deleteFriend(friend.id)}
+                    onClick={() => deleteFriend(friend.username)}
                     disabled={loading}
                     loading={loading ? 'Deleting...' : null}
                 >
                     Delete
                 </Button>
-                <Button color="main" contain onClick={close}>
+                <Button color="mainLight" contain onClick={close}>
                     Cancel
                 </Button>
             </ButtonsWrapper>
@@ -70,7 +70,7 @@ const DeleteFriend = ({show, close, friend, deleteFriend, error, loading}) => {
 }
 
 const mapStateToProps = ({friends}) => ({
-    // error: friends.deleteTodo.error,
+    error: friends.deleteFriend.error,
     loading: friends.loading
 })
 

@@ -99,29 +99,35 @@ const InputTodo = ({
                             placeholder="How often will you complete the task? (daily, weekly, monthly)"
                             component={Input}
                             />
-                            <section class="toppings">
-                                    <span style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textAlign:'center'}}>On what days will you complete the task?</span>
+                            <select style={{backgroundColor:'var(--color-mainLight)',color:'var(--color-mainDark)',fontFamily:'Tahoma',width:'100%',fontSize:'1.2rem',padding:'1.2rem 2rem',fontWeight:'500',borderRadius:'2rem',border:'var(--color-mainDark)',}} className='repetition'>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                            <section className="weekdays">
+                                    <span style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textAlign:'center'}}>On what days will you complete the task?</span>
                                     <br/>
-                                    <input type="checkbox" name="weekday" id="Sunday" value="Sunday"/>
-                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textJustify:'center'}} for="Sunday">Sunday</label>
+                                    <Field type="checkbox" name="weekday" id="Sunday" value="Sunday" component={Input} style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textAlign:'center', margin:'0rem',}}/>
+                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textAlign:'center'}} for="Sunday">Sunday</label>
                                     <br/>
-                                    <input type="checkbox" name="weekday" id="Monday" value="Monday"/>
-                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textJustify:'center'}} for="Monday">Monday</label>
+                                    <Field type="checkbox" name="weekday" id="Monday" value="Monday" component={Input}/>
+                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textJustify:'center'}} for="Monday">Monday</label>
                                     <br/>
-                                    <input type="checkbox" name="weekday" id="Tuesday" value="Tuesday"/>
-                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textJustify:'center'}} for="Tuesday">Tuesday</label>
+                                    <Field type="checkbox" name="weekday" id="Tuesday" value="Tuesday" component={Input}/>
+                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textJustify:'center'}} for="Tuesday">Tuesday</label>
                                     <br/>
-                                    <input type="checkbox" name="weekday" id="Wednesday" value="Wednesday"/>
-                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textJustify:'center'}} for="Wednesday">Wednesday</label>
+                                    <Field type="checkbox" name="weekday" id="Wednesday" value="Wednesday" component={Input}/>
+                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textJustify:'center'}} for="Wednesday">Wednesday</label>
                                     <br/>
-                                    <input type="checkbox" name="weekday" id="Thursday" value="Thursday"/>
-                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textJustify:'center'}} for="Thursday">Thursday</label>
+                                    <Field type="checkbox" name="weekday" id="Thursday" value="Thursday" component={Input}/>
+                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textJustify:'center'}} for="Thursday">Thursday</label>
                                     <br/>
-                                    <input type="checkbox" name="weekday" id="Friday" value="Friday"/>
-                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textJustify:'center'}} for="Friday">Friday</label>
+                                    <Field type="checkbox" name="weekday" id="Friday" value="Friday" component={Input}/>
+                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textJustify:'center'}} for="Friday">Friday</label>
                                     <br/>
-                                    <input type="checkbox" name="weekday" id="Saturday" value="Saturday"/>
-                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.8rem',textJustify:'center'}} for="Saturday">Saturday</label>
+                                    <Field type="checkbox" name="weekday" id="Saturday" value="Saturday" component={Input}/>
+                                    <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textJustify:'center'}} for="Saturday">Saturday</label>
                                     <br/>
                             </section>
                             

@@ -49,6 +49,7 @@ export const deleteTodo = id => async(
 ) => {
   const firestore = getFirestore();
   const userId = getState().firebase.auth.uid;
+  console.log(id)
   dispatch({type: actions.DELETE_TODO_START });
   try {
     const res = await firestore
