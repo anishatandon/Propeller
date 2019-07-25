@@ -30,6 +30,15 @@ export default (state = initialState, { type, payload }) => {
     case actions.DELETE_FRIEND_FAIL:
         return {...state, deleteTodo: {...state.deleteTodo, loading: false, error: payload }};
 
+    case actions.BLOCK_FRIEND_START:
+        return { ...state, loading: true };
+            
+    case actions.BLOCK_FRIEND_SUCCESS:
+        return { ...state, loading: false, error: false };
+        
+    case actions.BLOCK_FRIEND_FAIL:
+        return { ...state, loading: false, error: payload };
+
     default:
         return state
     }

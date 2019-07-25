@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import Button from '../UI/Button';
 import Heading from '../UI/Heading';
 import Modal from '../UI/Modal';
-// import AddTaskButton from '../AddTaskButton' 
 import Input from '../UI/Input';
 import Message from '../UI/Message';
 import {StyledForm} from '../../hoc/layout/elements';
@@ -91,9 +90,9 @@ const AddFriend = ({
                                     color="mainLight"
                                     contain
                                     onClick={() => {
-                                        // setisOpened(false);
-                                        close();
-                                        resetForm();
+                                        setisOpened(false);
+                                        // close();
+                                        // resetForm();
                                     }}
                                 >
                                     Cancel

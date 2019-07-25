@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 // import { compose } from '../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
 
-import BlockFriend from './BlockFriend'
+import BlockFriend from './BlockFriend2'
 import SendTodoFriend from './SendTodoFriend'
 import DeleteFriend from './DeleteFriend'
 import AddFriend from './AddFriend'
@@ -60,7 +60,7 @@ const Friend = ({ friend }) => {
 
     return (
         <Wrapper>
-            {friend.lastName}{", "}{friend.firstName}
+            {friend.firstName} {friend.lastName}
             <Controls>
                 <i
                     className="far fa-trash-alt"

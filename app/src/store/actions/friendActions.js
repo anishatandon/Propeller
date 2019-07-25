@@ -21,6 +21,10 @@ import * as actions from './actionTypes';
       await firestore
         .collection('users')
         .where('username', "==", username.friend)
+        // tried to check that this username is not already a friend because
+        // currently can add the same friend twice
+        // .collection('friends')
+        // .where('username', "!=", username.friend)
         // && 'username', "!=", friends.friends.username
         .get()
         .then(querySnapshot => {
@@ -88,24 +92,38 @@ export const blockFriend = username => async(
 ) => {
   const firestore = getFirestore();
   const userId = getState().firebase.auth.uid;
+  console.log(username)
   dispatch({type: actions.BLOCK_FRIEND_START });
   try {
     const res = await firestore
-      .collection('blockedFriends')
+      .collection('blockFriends')
       .doc(userId)
       .get();
-    console.log("blockedFriends", {res})
+    // console.log("blockFriends", {res})
+    console.log("block Friends")
     const previousFriends = res.data().friends;
-    const newFriends = previousFriends.filter(friend => friend.username !== username)
-    const previousBlockedFriends = res.data().blockedFriends
-    const newBlockedFriends = previousBlockedFriends.add(friend => friend.username !== username)
+    console.log("previous Friends")
+    console.log(previousFriends)
+    const newFriends = previousFriends.filter(friend => friend.username !== username);
+    const previousBlockFriends = res.data().blockFriends;
+    const newBlockFriends = previousBlockFriends.add(friend => friend.username !== username);
+    // I don't think the above line of code is working with the friend => friend.username !== username
     await firestore
       .collection('friends')
       .doc(userId)
       .update({
         friends: newFriends,
-        blockedFriends: newBlockedFriends,
       })
+      .collection('blockFriends')
+      .doc(userId)
+      .update({
+        blockFriends: newBlockFriends,
+      })
+      // .doc(userId)
+      // .update({
+      //   friends: newFriends,
+      //   blockFriends: newBlockFriends,
+      // })
   
     dispatch({type: actions.BLOCK_FRIEND_SUCCESS})
   } catch(err) {
