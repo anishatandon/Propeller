@@ -181,6 +181,7 @@ const Account = ({ firebase, editAccount, loading, error, loadingDelete, errorDe
                     <Button 
                         contain
                         onClick={() => deleteUser()}
+                        // color="mainLight"
                         color="red"
                         disabled={loadingDelete}
                         loading={loadingDelete ? 'Deleting...' : null}

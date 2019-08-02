@@ -88,7 +88,6 @@ const Friends = ({friends, requested, userId}) => {
                     </Heading>
                     <AddFriend opened={isAdding} close={() => setIsAdding(false)} />
                     {content}
-                    {/* </AddFriend> */}
                 </InnerWrapper>
             </Container>
         </Wrapper>

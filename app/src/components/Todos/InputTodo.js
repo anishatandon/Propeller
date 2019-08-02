@@ -93,19 +93,20 @@ const InputTodo = ({
                             placeholder="What is your new task?"
                             component={Input}
                             />
-                            <Field
+                            {/* <Field
                             type="text"
                             name="repetition"
                             placeholder="How often will you complete the task? (daily, weekly, monthly)"
                             component={Input}
-                            />
+                            /> */}
+                            <span style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textAlign:'center'}}>How frequently will you complete the task?</span>
                             <select style={{backgroundColor:'var(--color-mainLight)',color:'var(--color-mainDark)',fontFamily:'Tahoma',width:'100%',fontSize:'1.2rem',padding:'1.2rem 2rem',fontWeight:'500',borderRadius:'2rem',border:'var(--color-mainDark)',}} className='repetition'>
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="yearly">Yearly</option>
                             </select>
-                            <section className="weekdays">
+                            {/* <section className="weekdays">
                                     <span style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textAlign:'center'}}>On what days will you complete the task?</span>
                                     <br/>
                                     <Field type="checkbox" name="weekday" id="Sunday" value="Sunday" component={Input} style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textAlign:'center', margin:'0rem',}}/>
@@ -129,7 +130,7 @@ const InputTodo = ({
                                     <Field type="checkbox" name="weekday" id="Saturday" value="Saturday" component={Input}/>
                                     <label style={{color:'rgba(206,232,250,1)',fontFamily:'Tahoma',fontSize:'1.2rem',textJustify:'center'}} for="Saturday">Saturday</label>
                                     <br/>
-                            </section>
+                            </section> */}
                             
                             <ButtonsWrapper>
                                 <Button

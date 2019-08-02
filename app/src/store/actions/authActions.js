@@ -16,15 +16,17 @@ export const signUp = data => async (
 
             //Send the verification email
             const user = firebase.auth().currentUser;
+            const userid = user.uid
             await user.sendEmailVerification();
-
+            console.log({userid})
         await firestore
             .collection('users')
             .doc(res.user.uid)
             .set({
                 firstName: data.firstName,
                 lastName: data.lastName,
-                username: data.username
+                username: data.username,
+                uid: user.uid
              })
         dispatch({ type: actions.AUTH_SUCCESS });
     } catch (err) {
@@ -117,7 +119,9 @@ export const editAccount = data => async (
             .doc(userId)
             .set({
                 firstName: data.firstName,
-                lastName: data.lastName
+                lastName: data.lastName,
+                uid: userId,
+                username: data.username
             });
 
             if (data.password.length > 0) {

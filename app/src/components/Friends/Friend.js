@@ -34,7 +34,7 @@ const Controls = styled.div`
   
 const deleteStyles = {
     color: 'var(--color-errorRed)',
-    margin: '0 .5rem',
+    margin: '0.5rem',
     cursor: 'pointer',
 };
 

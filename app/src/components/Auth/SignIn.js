@@ -75,6 +75,7 @@ const Signin = ({ signin, loading, error, cleanUp }) => {
               disabled={!isValid || isSubmitting}
               loading={loading ? 'Signing in...' : null}
               type="submit"
+              color='mainDark'
             >
               Sign In
             </Button>

@@ -1,8 +1,14 @@
 import * as actions from './actionTypes';
+// import friendsReducer from '../../store/reducers/friendsReducer';
+// import React from 'react'
+// import {connect} from 'react-redux'
+// import styled from 'styled-components'
 
-// var admin = require('firebase-admin')
+function getParent(snapshot){
+  var ref = snapshot.ref();
+  return ref.parent().name();
+}
 // Add a friend
-// export const addFriend = data => async (
   export const addFriend = username => async (
     dispatch,
     getState,
@@ -10,7 +16,53 @@ import * as actions from './actionTypes';
   ) => {
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
+    console.log({userId})
     dispatch({ type: actions.ADD_FRIEND_START });
+    try {
+      const user = await firestore
+            .collection('friends')
+            .doc(userId)
+            .get();
+      console.log("outside", {user})
+      await firestore
+        .collection('users')
+        .where('username', "==", username.friend)
+        .get()
+        .then(querySnapshot => {
+            const newFriend = querySnapshot.docs.map(doc => doc.data())[0];
+            const newFriendID = newFriend.uid
+          console.log({newFriend});
+          console.log({newFriendID});
+        if (!user.data()) {
+          firestore
+            .collection('friends')
+            .doc(newFriendID)
+            .set({
+              friends: [newFriend],
+            });
+        } else {
+          firestore
+            .collection('friends')
+            .doc(userId)
+            .update({
+              friends: [...user.data().friends, newFriend],
+            });
+            dispatch({ type: actions.ADD_FRIEND_SUCCESS });
+            return true;
+        }
+      })
+    } catch (err) {
+      dispatch({ type: actions.ADD_FRIEND_FAIL, payload: err.message });
+    }
+  };
+
+  // SEND INVITE
+  /*
+  export const sendInvite = username => async(dispatch, getState, { getFirestore, getFirebase }) => {
+    const firestore = getFirestore();
+    const userId = getState().firebase.auth.uid;
+    dispatch({ type: actions.ADD_FRIEND_START });
+
     try {
       const res = await firestore
         .collection('friends')
@@ -52,6 +104,7 @@ import * as actions from './actionTypes';
       dispatch({ type: actions.ADD_FRIEND_FAIL, payload: err.message });
     }
   };
+*/
   
 // Delete friend
 export const deleteFriend = username => async(
@@ -96,37 +149,113 @@ export const blockFriend = username => async(
   dispatch({type: actions.BLOCK_FRIEND_START });
   try {
     const res = await firestore
-      .collection('blockFriends')
+      .collection('friends')
       .doc(userId)
       .get();
-    // console.log("blockFriends", {res})
-    console.log("block Friends")
+    // const rese = await firestore
+    //   .collection('blockFriends')
+    //   .doc(userId)
+    //   .get()
+    console.log("friends", {res})
+    // console.log("block Friends", {rese})
     const previousFriends = res.data().friends;
-    console.log("previous Friends")
-    console.log(previousFriends)
+    console.log({previousFriends})
     const newFriends = previousFriends.filter(friend => friend.username !== username);
-    const previousBlockFriends = res.data().blockFriends;
-    const newBlockFriends = previousBlockFriends.add(friend => friend.username !== username);
-    // I don't think the above line of code is working with the friend => friend.username !== username
+    console.log({newFriends})
+    // const previousBlockFriends = rese.data().blockFriends;
+    // console.log({previousBlockFriends})
+    // const newBlockFriends = previousBlockFriends.add(friend => friend.username !== username);
+    // console.log({newBlockFriends})
     await firestore
       .collection('friends')
       .doc(userId)
       .update({
         friends: newFriends,
       })
-      .collection('blockFriends')
-      .doc(userId)
-      .update({
-        blockFriends: newBlockFriends,
-      })
+      // .collection('blockFriends')
       // .doc(userId)
       // .update({
-      //   friends: newFriends,
       //   blockFriends: newBlockFriends,
       // })
+    const rese = await firestore
+      .collection('blockFriends')
+      .doc(userId)
+      .get()
+    console.log('blockFriends', {rese})
+    // if (rese.data() === null) {
+    //   console.log("if")
+    //   const previousBlockFriends = [];
+    //   console.log({previousBlockFriends})
+    //   const newBlockFriends = [users.username]
+    //   console.log({newBlockFriends})
+    // } else {
+    //   console.log("else")
+    //   const previousBlockFriends = rese.data().blockFriends;
+    //   console.log({previousBlockFriends})
+    //   const newBlockFriends = previousBlockFriends.add(friend => friend.username !== username)
+    //   console.log({newBlockFriends})
+    // }
+    const previousBlockFriends = rese.data().blockFriends;
+    console.log({previousBlockFriends})
+    const newBlockFriends = previousBlockFriends.add(friend => friend.username !== username)
+    console.log({newBlockFriends})
+    await firestore
+      .collection('blockFriends')
+      .doc(userId)
+      .update({blockFriends: newBlockFriends})
   
     dispatch({type: actions.BLOCK_FRIEND_SUCCESS})
   } catch(err) {
     dispatch({type: actions.BLOCK_FRIEND_FAIL, payload: err.message})
   }
 }
+
+// Above method to blockFriend is working better than below except for the fact that two collect and try functions don't work with firebase
+// For the below method tried to call deleteFrind and then do the blockFriend list part of the action
+
+// export const blockFriend = username => async(
+//   dispatch,
+//   getState,
+//   {getFirestore, getFirebase }
+// ) => {
+//   const firestore = getFirestore();
+//   const userId = getState().firebase.auth.uid;
+//   console.log(username)
+//   dispatch({type: actions.BLOCK_FRIEND_START });
+//   try {
+//     deleteFriend(username)
+//     const res = await firestore
+//       .collection('blockFriends')
+//       .doc(userId)
+//       .get()
+//     console.log("blockFriends", {res})
+//     const previousBlockFriends = res.data().blockFriends;
+//     console.log({previousBlockFriends})
+//     const newBlockFriends = previousBlockFriends.add(friend => friend.username !== username);
+//     console.log(newBlockFriends)
+//     await firestore
+//       .collection('blockFriends')
+//       .doc(userId)
+//       .update({
+//         blockFriends: newBlockFriends,
+//       })
+//     dispatch({type: actions.BLOCK_FRIEND_SUCCESS})
+//   } catch(err) {
+//     dispatch({type: actions.BLOCK_FRIEND_FAIL, payload: err.message})
+//   }
+// }
+
+// Send friend a todo
+// export const sendFriendTodo = data => async (
+//   dispatch,
+//   getState,
+//   { getFirestore, getFirebase }
+// ) => {
+//   const firestore = getFirestore();
+//   const userId = getState().firebase.auth.uid;
+//   dispatch({ type: actions.SEND_FRIEND_TODO_START });
+//   try {
+//     const res = await firestore
+//       .collection('')
+//   }
+// }
