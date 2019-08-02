@@ -119,7 +119,9 @@ export const editAccount = data => async (
             .doc(userId)
             .set({
                 firstName: data.firstName,
-                lastName: data.lastName
+                lastName: data.lastName,
+                uid: userId,
+                username: data.username
             });
 
             if (data.password.length > 0) {
